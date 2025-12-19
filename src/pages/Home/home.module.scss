@@ -1,0 +1,923 @@
+.homePage {
+  .HSection1,
+  .HSection2,
+  .HSection3,
+  .HSection4,
+  .HSection5,
+  .HSection6 {
+    width: 100%;
+    height: 100vh; // full viewport height
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .HSection1 {
+    position: relative;
+    background-color: #ffffff;
+    // Height of the section itself, responsive using clamp
+    height: clamp(600px, 55.73vw, 714.66px); // 714.66px at 1280px
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+
+    // Inner background image container
+    .HS1BgImage {
+      position: relative;
+      width: 100%;
+      height: clamp(500px, 46.875vw, 600.5px); // height for image
+      background: url('../../assets/images/home/Background1.svg') center/cover
+        no-repeat;
+
+      .HS1InnerImage1 {
+        position: absolute;
+        display: block;
+        top: 80px;
+        left: 170px;
+        z-index: 2;
+
+        @media (min-width: 768px) {
+          display: none;
+        }
+
+        .HS1InnerImage1Size {
+          position: absolute;
+          display: block;
+          width: clamp(150px, 27.89vw, 300px);
+          height: auto;
+          border-radius: 25px;
+          object-fit: cover;
+
+          @media (min-width: 768px) {
+            display: none;
+          }
+        }
+      }
+
+      .HS1InnerImage2 {
+        position: absolute;
+        display: block;
+        top: 110px;
+        left: 110px;
+        z-index: 3;
+
+        @media (min-width: 768px) {
+          display: none;
+        }
+
+        .HS1InnerImage2Size {
+          position: absolute;
+          display: block;
+          width: clamp(150px, 31.25vw, 300px);
+          height: auto;
+          border-radius: 25px;
+          object-fit: cover;
+
+          @media (min-width: 768px) {
+            display: none;
+          }
+        }
+      }
+
+      // Text box inside section
+      .HS1TextBox {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin-top: 170px;
+        margin-left: 20px;
+
+        @media (min-width: 768px) {
+          margin-top: 0px;
+          margin-left: clamp(20px, 7.8vw, 100px);
+        }
+
+        .HS1Title {
+          margin-left: 120px;
+          text-align: center;
+          font-weight: 700;
+          font-family: var(--primary-font);
+
+          // Use clamp for font-size
+          font-size: clamp(20px, 3vw, 42px); // scales between 20px and 42px
+          line-height: clamp(28px, 4vw, 52px); // scales between 28px and 52px
+
+          // Responsive spacing
+          margin-top: clamp(
+            50px,
+            14.6vw,
+            187px
+          ); // scales between 50px and 187px
+
+          @media (min-width: 768px) {
+            margin-left: 0px;
+            text-align: left;
+          }
+        }
+
+        .HS1Text {
+          width: clamp(200px, 29.06vw, 372px);
+          height: clamp(50px, 5.63vw, 72px);
+          margin-top: clamp(15px, 3vw, 29px);
+          margin-left: 80px;
+          font-weight: 400;
+          text-align: center;
+          color: #496a63;
+          font-family: var(--primary-font);
+          font-size: clamp(12px, 2.2vw, 14px);
+          line-height: clamp(20px, 3.5vw, 24px);
+
+          @media (min-width: 768px) {
+            margin-left: 0px;
+            text-align: left;
+          }
+        }
+
+        .HS1SearchWrapper {
+          display: flex;
+          justify-content: center;
+          margin-top: 90px;
+          z-index: 1;
+
+          // Search input sizing
+          --search-width: clamp(350px, 37.27vw, 477px);
+          --search-height: clamp(40px, 7vw, 50px);
+          --search-font: clamp(12px, 2.2vw, 14px);
+          --button-font: clamp(14px, 3vw, 16px);
+
+          // Button sizing
+          --button-font: clamp(14px, 3vw, 16px);
+
+          @media (min-width: 768px) {
+            margin-top: 140px;
+          }
+
+          @media (min-width: 1024px) {
+            --search-width: clamp(250px, 37.27vw, 477px);
+            margin-top: 59px;
+          }
+
+          @media (min-width: 1280px) {
+            margin-top: 29px;
+          }
+
+          :global(input) {
+            height: var(--search-height);
+            padding: 0 10px !important;
+            padding-right: calc(
+              var(--button-width) + 6px
+            ) !important; // leave space for button
+            display: flex;
+            align-items: center;
+          }
+        }
+
+        /* Wrapper to overlay fake label */
+        .HS1InputWrapper {
+          position: relative;
+          width: var(--search-width);
+          height: var(--search-height);
+          border-radius: 10px; /* add this */
+          overflow: hidden; /* ensures child input doesn't overflow corners */
+
+          :global(.formGroup) {
+            width: 100%;
+            height: 100%;
+            margin-bottom: 0; // override default spacing
+          }
+        }
+
+        /* Fake label inside input */
+        .HS1InputLabelText {
+          position: absolute;
+          font-family: var(--primary-font);
+          left: clamp(12px, 3vw, 16px);
+          top: 50%;
+          transform: translateY(-50%);
+          pointer-events: none;
+
+          font-size: clamp(12px, 2.2vw, 14px);
+          line-height: clamp(20px, 3vw, 24px);
+          color: #83bfb3;
+        }
+
+        .HS1InputButton {
+          position: absolute;
+          font-weight: 600;
+          font-family: var(--primary-font);
+          right: clamp(8px, 2vw, 12px);
+          top: 50%;
+          transform: translateY(-50%);
+          height: var(--button-height);
+          width: var(--button-width);
+          display: flex !important;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+
+    .HS1Image1 {
+      position: relative;
+      display: none;
+
+      @media (min-width: 768px) {
+        position: absolute;
+        display: block;
+        top: clamp(100px, 13.28vw, 170px);
+        left: clamp(50px, 64.3vw, 823px);
+      }
+
+      .HS1Image1Size {
+        position: relative;
+        display: none;
+
+        @media (min-width: 768px) {
+          position: absolute;
+          display: block;
+          width: clamp(200px, 27.89vw, 357px);
+          height: clamp(160px, 22.34vw, 286px);
+          border-radius: 25px;
+          object-fit: cover;
+        }
+      }
+    }
+
+    .HS1Image2 {
+      position: relative;
+      display: none;
+
+      @media (min-width: 768px) {
+        display: block;
+        position: absolute;
+        top: clamp(80px, 25.15vw, 322px);
+        left: clamp(40px, 51vw, 653px);
+      }
+
+      .HS1Image2Size {
+        position: relative;
+        display: none;
+
+        @media (min-width: 768px) {
+          position: absolute;
+          display: block;
+          width: clamp(180px, 31.25vw, 400px);
+          height: clamp(140px, 22.34vw, 286px);
+          border-radius: 25px;
+          object-fit: cover;
+        }
+      }
+    }
+
+    .HS1Shape1 {
+      position: absolute;
+      top: clamp(200px, 41.56vw, 532px);
+      left: clamp(30px, 7.73vw, 99px);
+
+      .HS1Shape1Size {
+        position: relative;
+        width: clamp(20px, 2.79vw, 35.73px);
+        height: clamp(100px, 14.27vw, 182.66px);
+      }
+    }
+
+    .HS1Shape2 {
+      position: absolute;
+      top: clamp(100px, 15.16vw, 194px);
+      left: clamp(50px, 38.67vw, 495px);
+      .HS1Shape2Size {
+        position: relative;
+        width: clamp(100px, 16.25vw, 207.87px);
+        height: clamp(50px, 6.85vw, 87.68px);
+      }
+    }
+
+    .HS1Shape3 {
+      position: absolute;
+      top: clamp(200px, 38.52vw, 493px);
+      left: clamp(300px, 92.19vw, 1180px);
+
+      .HS1Shape3Size {
+        position: relative;
+        width: clamp(15px, 2.21vw, 28.33px);
+        height: clamp(80px, 10.74vw, 137.42px);
+      }
+    }
+  }
+
+  .HSection2 {
+    position: relative;
+    background-color: #ffffff;
+    height: clamp(300px, 19.14vw, 246px);
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+
+    @media (min-width: 425px) {
+      height: 350px;
+    }
+
+    @media (min-width: 728px) {
+      height: clamp(300px, 19.14vw, 246px);
+    }
+
+    @media (min-width: 1280px) {
+      height: 246px;
+    }
+
+    .HS2Box {
+      display: flex;
+      flex-wrap: wrap;
+      align-content: center;
+      flex-direction: column;
+
+      .HS2Title {
+        width: 100%;
+        font-weight: 700;
+        font-family: var(--primary-font);
+        font-size: clamp(
+          24px,
+          3vw,
+          36px
+        ); // font-size clamp from small to 1280px
+        margin-top: clamp(
+          -40px,
+          -2.3vw,
+          -50px
+        ); // margin-top clamp from small to 1280px
+        margin-bottom: clamp(30px, 5.8vw, 74px);
+        line-height: clamp(28px, 4vw, 44px);
+      }
+    }
+
+    .HS2ImageBox {
+      display: flex;
+      justify-content: space-evenly; // distribute images evenly
+      flex-wrap: wrap; // allow wrapping on smaller screens
+      gap: 50px;
+
+      @media (min-width: 768px) {
+        margin-left: 40px;
+        margin-right: 40px;
+      }
+
+      @media (min-width: 1024px) {
+        margin-left: 60px;
+        margin-right: 60px;
+      }
+
+      @media (min-width: 1280px) {
+        margin-left: 80px;
+        margin-right: 80px;
+      }
+
+      .logoBox {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+
+        img {
+          object-fit: contain;
+        }
+      }
+    }
+  }
+
+  .HSection3 {
+    width: 100%;
+    height: clamp(600px, 65vw, 832px);
+    background-color: #eef7f5;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    overflow: hidden;
+
+    @media (min-width: 425px) and (max-width: 728px) {
+      height: clamp(
+        1300px,
+        calc(2400px - ((2400 - 1300) * ((100vw - 425px) / (728 - 425)))),
+        2400px
+      );
+    }
+
+    @media (min-width: 728px) and (max-width: 1024px) {
+      height: clamp(
+        1048px,
+        calc(1300px - ((1300 - 1048) * ((100vw - 728px) / (1024 - 728)))),
+        1300px
+      );
+      padding-left: 60px;
+      padding-right: 60px;
+    }
+
+    @media (min-width: 1024px) and (max-width: 1280px) {
+      height: clamp(
+        832px,
+        calc(1048px - ((1048 - 832) * ((100vw - 1024px) / (1280 - 1024)))),
+        1048px
+      );
+      padding-left: 80px;
+      padding-right: 80px;
+    }
+
+    @media (min-width: 1280px) {
+      height: 832px;
+      padding-left: 100px;
+      padding-right: 100px;
+    }
+
+    .HS3Box {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      width: 100%;
+      align-items: flex-start;
+
+      .HS3Title {
+        width: auto;
+        font-weight: 700;
+        font-family: var(--primary-font);
+        font-size: clamp(
+          24px,
+          3vw,
+          36px
+        ); // font-size clamp from small to 1280px
+        line-height: clamp(28px, 4vw, 44px);
+        margin-top: clamp(34px, 7vw, 101px);
+        margin-bottom: clamp(28px, 6vw, 84px);
+      }
+
+      .HS3Text {
+        width: auto;
+        font-weight: 400;
+        font-family: var(--primary-font);
+
+        margin-top: clamp(42px, 8vw, 126px);
+        margin-bottom: clamp(31px, 7vw, 94px);
+
+        font-size: clamp(6px, 2vw, 16px);
+        line-height: clamp(10px, 3vw, 24px);
+
+        text-decoration: underline;
+      }
+    }
+
+    .HS3Boxes {
+      display: flex;
+      gap: 56px;
+      flex-wrap: wrap; // allows multiple boxes in rows
+      justify-content: center; // ⬅ centers all box items horizontally
+      align-items: flex-start;
+
+      .HS3BoxItem {
+        width: 228px;
+        height: 228px;
+
+        background-color: #ffffff;
+        border-radius: 10px;
+        position: relative;
+
+        .HS3BoxContent {
+          position: relative;
+          margin-left: 20px;
+          margin-top: 23px;
+
+          .boxIcon {
+            position: relative;
+            width: 60px;
+            height: 60px;
+          }
+
+          .boxTitle {
+            margin-top: 52px;
+            font-size: 16px;
+            font-weight: 700;
+            font-family: var(--primary-font);
+            color: #83bfb3;
+            line-height: 20px;
+          }
+
+          .boxText {
+            margin-top: 18px;
+            font-size: 12px;
+            font-weight: 400;
+            font-family: var(--primary-font);
+            color: #a3a3a3;
+            line-height: 16px;
+          }
+        }
+      }
+    }
+  }
+
+  .HSection4 {
+    width: 100%;
+    height: clamp(600px, 80vw, 1034px);
+    background-color: #ffffff;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    overflow: hidden;
+
+    @media (min-width: 425px) and (max-width: 728px) {
+      height: 2850px;
+    }
+
+    @media (min-width: 728px) and (max-width: 1024px) {
+      height: 1550px;
+      padding-left: 60px;
+      padding-right: 60px;
+    }
+
+    @media (min-width: 1024px) and (max-width: 1280px) {
+      height: 1250px;
+      padding-left: 80px;
+      padding-right: 80px;
+    }
+
+    @media (min-width: 1280px) {
+      height: 1034px;
+      padding-left: 100px;
+      padding-right: 100px;
+    }
+
+    .HS4Box {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      width: 100%;
+      align-items: flex-start;
+
+      .HS4Title {
+        width: auto;
+        font-weight: 700;
+        font-family: var(--primary-font);
+        font-size: clamp(
+          24px,
+          3vw,
+          36px
+        ); // font-size clamp from small to 1280px
+        line-height: clamp(28px, 4vw, 44px);
+        margin-top: clamp(34px, 7vw, 101px);
+        margin-bottom: clamp(28px, 6vw, 84px);
+      }
+
+      .HS4Text {
+        width: auto;
+        font-weight: 400;
+        font-family: var(--primary-font);
+
+        margin-top: clamp(42px, 8vw, 126px);
+        margin-bottom: clamp(31px, 7vw, 94px);
+
+        font-size: clamp(6px, 2vw, 16px);
+        line-height: clamp(10px, 3vw, 24px);
+
+        text-decoration: underline;
+      }
+    }
+
+    .HS4Boxes {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap; // allows multiple boxes in rows
+      justify-content: center;
+      align-items: flex-start;
+
+      .HS4BoxItem {
+        width: 258px;
+        height: 323.74px;
+
+        background-color: #ffffff;
+        border-radius: 10px;
+        border: 4px solid #eef7f5;
+        position: relative;
+
+        .HS4BoxContent {
+          position: relative;
+
+          .HS4Line {
+            position: absolute;
+            bottom: 47.19px;
+            width: 250px;
+            height: 1px;
+            background-color: #d9d9d9;
+            z-index: 1;
+          }
+
+          .box1 {
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            margin-left: 22.36px;
+            margin-top: 23.42px;
+
+            .boxIcon {
+              position: relative;
+              width: 50px;
+              height: 50px;
+              margin-right: 12px;
+              object-fit: cover;
+            }
+
+            .textbox1 {
+              position: relative;
+              display: flex;
+              flex-direction: column;
+
+              .boxTitle1 {
+                font-size: 14px;
+                font-weight: 700;
+                font-family: var(--primary-font);
+                color: #496a63;
+              }
+
+              .boxlocation {
+                position: relative;
+                display: flex;
+                flex-direction: row;
+
+                .boxicon2 {
+                  position: relative;
+                  width: 9.33px;
+                  height: 11.67px;
+                  margin-top: 3px;
+                }
+
+                .boxtext1 {
+                  margin-left: 3px;
+                  font-size: 12px;
+                  font-weight: 400;
+                  font-family: var(--primary-font);
+                  color: #a3a3a3;
+                }
+              }
+            }
+          }
+
+          .box2 {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            margin-left: 22.36px;
+
+            .boxTitle2 {
+              margin-top: 26.35px;
+              margin-bottom: 6px;
+              font-size: 14px;
+              font-weight: 700;
+              font-family: var(--primary-font);
+              color: #2c3f3c;
+            }
+
+            .boxiconbox1 {
+              position: relative;
+              display: flex;
+              flex-direction: row;
+
+              .boxicon3 {
+                position: relative;
+                width: 14px;
+                height: 12.6px;
+              }
+
+              .boxtext2 {
+                margin-left: 7px;
+                margin-right: 14px;
+                font-size: 12px;
+                font-weight: 400;
+                font-family: var(--primary-font);
+                color: #a3a3a3;
+              }
+
+              .boxicon4 {
+                position: relative;
+                width: 9.8px;
+                height: 14px;
+              }
+
+              .boxtext3 {
+                margin-left: 7px;
+                font-size: 12px;
+                font-weight: 400;
+                font-family: var(--primary-font);
+                color: #a3a3a3;
+              }
+            }
+
+            .boxtext4 {
+              margin-top: 15px;
+              margin-right: 15px;
+              font-size: 10px;
+              line-height: 16px;
+              font-weight: 400;
+              font-family: var(--primary-font);
+              color: #a3a3a3;
+            }
+
+            .textbox2 {
+              position: relative;
+              display: flex;
+              flex-direction: row;
+
+              .boxTitle3 {
+                margin-top: 70px;
+                margin-right: 10px;
+                font-size: 16px;
+                font-weight: 700;
+                font-family: var(--primary-font);
+                color: #83bfb3;
+              }
+
+              .boxtext5 {
+                margin-top: 72px;
+                font-size: 10px;
+                font-weight: 400;
+                font-family: var(--primary-font);
+                color: #a3a3a3;
+              }
+
+              .button1 {
+                margin-top: 58px;
+                margin-left: 6px;
+                width: 98.9px;
+                height: 30.54px;
+                border-radius: 5px;
+                background-color: #83bfb3;
+                font-size: 12px;
+                line-height: 54px;
+                font-weight: 600;
+                text-align: center;
+                font-family: var(--primary-font);
+                color: #ffffff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .HSection5 {
+    width: 100%;
+    height: clamp(600px, 65vw, 832px);
+    background-color: #ffffff;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    overflow: hidden;
+
+    @media (min-width: 425px) {
+      height: 600px;
+    }
+
+    @media (min-width: 728px) {
+      height: 700px;
+      padding-left: 60px;
+      padding-right: 60px;
+    }
+
+    @media (min-width: 1024px) {
+      height: 450px;
+      padding-left: 80px;
+      padding-right: 80px;
+    }
+
+    @media (min-width: 1280px) {
+      height: 560px;
+      padding-left: 100px;
+      padding-right: 100px;
+    }
+
+    .HS5Box {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: flex-start;
+      justify-content: center;
+      width: 100%;
+      margin-bottom: 30px;
+
+      @media (min-width: 1280px) {
+        margin-bottom: 65px;
+      }
+
+      .HS5Title {
+        font-weight: 700;
+        font-family: var(--primary-font);
+        font-size: clamp(
+          24px,
+          3vw,
+          36px
+        ); // font-size clamp from small to 1280px
+        line-height: clamp(28px, 4vw, 44px);
+        margin-bottom: clamp(28px, 6vw, 84px);
+      }
+    }
+
+    .HS5Box2 {
+      display: flex;
+      width: 100%;
+      flex-direction: column; /* ⬅ Stack vertically BEFORE 1024px */
+      align-items: center;
+      gap: 40px; /* optional spacing */
+
+      @media (min-width: 1024px) {
+        flex-direction: row; /* ⬅ Side-by-side on desktop */
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 121px;
+      }
+
+      .HS5ContentBox {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        @media (min-width: 1024px) {
+          width: 33.33%;
+        }
+
+        .HS5Icon {
+          width: clamp(40px, 6vw, 60px);
+          height: clamp(34px, 5vw, 52.11px);
+          object-fit: contain;
+        }
+
+        .HS5Title {
+          margin-top: clamp(20px, 5vw, 47.89px);
+          font-size: clamp(14px, 2.2vw, 18px);
+          font-weight: 700;
+        }
+
+        .HS5Text {
+          margin-top: clamp(10px, 3vw, 16px);
+          font-size: clamp(12px, 1.8vw, 14px);
+          line-height: clamp(18px, 3vw, 22px);
+          font-weight: 400;
+        }
+      }
+    }
+  }
+
+  .HSection6 {
+    width: 100%;
+    height: clamp(300px, 65vw, 832px);
+    background-image: url('../../assets/images/home/AboutImage2.png');
+    background-size: cover; // keep image proportional
+    background-position: center; // center FOR ALL screen sizes
+    background-repeat: no-repeat;
+  }
+}
+
+.google {
+  width: clamp(120px, 14vw, 188.1px);
+  height: auto;
+}
+
+.intel {
+  width: clamp(80px, 12vw, 104.23px);
+  height: auto;
+}
+
+.apple {
+  width: clamp(45px, 6vw, 60.38px);
+  height: auto;
+}
+
+.dentsu {
+  width: clamp(100px, 12vw, 149.67px);
+  height: auto;
+}
+
+.ddb {
+  width: clamp(70px, 8vw, 96.5px);
+  height: auto;
+}
+
+.microsoft {
+  width: clamp(140px, 16vw, 211.33px);
+  height: auto;
+}

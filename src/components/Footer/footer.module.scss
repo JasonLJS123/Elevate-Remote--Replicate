@@ -1,0 +1,96 @@
+.theFooter {
+  position: relative;
+  width: 100%;
+  padding: 30px 40px;
+  background: #ffffff;
+  box-sizing: border-box;
+  display: flex;
+  gap: 40px;
+  justify-content: space-between; // Box1 left, Box2 right
+  align-items: flex-start;
+  max-width: 1280px;
+  margin: 0 auto;
+
+  @media (min-width: 768px) {
+    padding: 50px 60px;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 70px 80px;
+  }
+
+  @media (min-width: 1280px) {
+    padding: 90px 100px;
+  }
+
+  .Box1 {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .logo-top {
+      margin-bottom: 30px;
+
+      img {
+        width: 128px;
+        height: 53px;
+        object-fit: contain;
+      }
+    }
+
+    .box-horizontal {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      img {
+        width: 20px;
+        height: 15px;
+        object-fit: contain;
+      }
+
+      .text1 {
+        font-size: 16px;
+        line-height: 22px;
+      }
+    }
+
+    .text-bottom p {
+      padding: 40px 0 50px;
+
+      .text2 {
+        font-size: 14px;
+        line-height: 20px;
+      }
+    }
+  }
+
+  .Box2 {
+    display: none;
+
+    @media (min-width: 1024px) {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end; // right align like header-right
+      gap: 40px;
+
+      .icons {
+        display: flex;
+        gap: 20px;
+      }
+
+      .labels {
+        display: flex;
+        gap: 20px;
+      }
+    }
+  }
+}
+
+// .imgBlock {
+//   width: 100px;
+
+//   & img {
+//     object-fit: contain;
+//   }
+// }

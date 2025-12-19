@@ -1,0 +1,8 @@
+.formLabel {
+  margin: var(--margin, 1rem 0);
+  color: var(--color, var(--paragraph-color));
+  font-size: var(--font-size, 1rem);
+  font-weight: var(--font-weight, normal);
+  text-align: var(--text-align, center);
+  text-decoration: var(--text-decoration, none);
+}

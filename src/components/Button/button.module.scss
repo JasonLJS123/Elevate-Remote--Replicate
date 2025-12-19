@@ -1,0 +1,28 @@
+.root {
+  width: 100%;
+  margin-bottom: var(--margin-bottom, 0);
+  padding: var(--padding, 0.4rem 2rem);
+  background: var(--background, var(--white-color));
+  border-radius: var(--border-radius, 0);
+  border: var(--border, unset);
+  box-shadow: var(--box-shadow, unset);
+  display: var(--display, flex);
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  //   margin-top: var(--margin-top, 0);
+
+  &:hover {
+    background: var(--hover-background, var(--white-color));
+  }
+
+  .label {
+    width: 100%;
+    margin: 0;
+    color: var(--color, var(--white-color));
+    font-weight: var(--font-weight, normal);
+    text-align: var(--text-align, center);
+    font-size: var(--font-size, 16px);
+    text-decoration: var(--text-decoration, none);
+  }
+}

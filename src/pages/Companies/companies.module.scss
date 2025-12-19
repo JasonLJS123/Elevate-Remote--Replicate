@@ -1,0 +1,354 @@
+.companies-page {
+  width: 100%;
+  height: 100%; // desktop framework height
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+/* Sections */
+.section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+}
+
+.section-1 {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background: url('../../assets/images/companies/Background1.svg') center/cover
+    no-repeat;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+
+  .section1-inner {
+    width: auto; /* static framework width */
+    margin-left: 97px;
+    margin-right: 100px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ───────── BODY ROW ───────── */
+  .section1-body {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+
+    @media (min-width: 1024px) {
+      flex-direction: row; /* <--- side-by-side from tablet */
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-top: 170px;
+    }
+  }
+
+  /* LEFT IMAGE */
+  .section1-left-image {
+    display: flex; /* <--- always visible now */
+    max-width: 100%; /* scale nicely on mobile */
+    width: 100%;
+    margin-bottom: 30px;
+
+    @media (min-width: 1024px) {
+      display: flex;
+      max-width: 576px;
+      width: auto;
+      height: auto;
+    }
+  }
+
+  /* RIGHT CONTENT */
+  .section1-right-content {
+    display: flex;
+    flex-direction: column;
+    margin-top: 17px;
+    max-width: 455px;
+    color: #496a63; /* Paragraph text inherits color if not overridden */
+    gap: 29px;
+
+    @media (min-width: 1024px) {
+      margin-left: 71px;
+    }
+
+    .S1title {
+      font-size: 24px;
+      line-height: 36px;
+
+      @media (min-width: 768px) {
+        font-size: 30px;
+        line-height: 42px;
+      }
+
+      @media (min-width: 1280px) {
+        font-size: 42px;
+        line-height: 54px;
+      }
+    }
+    .S1text {
+      font-size: 14px;
+      line-height: 24px;
+
+      @media (min-width: 1280px) {
+        font-size: 14px;
+        line-height: 24px;
+      }
+    }
+  }
+
+  /* BUTTON Section */
+  /* Mobile (default 425px) */
+  .section1-button {
+    font-family: var(--primary-font);
+    width: 120px;
+    height: 40px;
+    font-size: 16px;
+    margin-bottom: 70px;
+  }
+
+  /* Tablet: ≥ 768px */
+  @media (min-width: 768px) {
+    .section1-button {
+      width: 136px;
+      height: 35px;
+    }
+  }
+
+  /* Your base design: ≥ 1280px */
+  @media (min-width: 1280px) {
+    .section1-button {
+      width: 150px;
+      height: 40px;
+    }
+  }
+}
+
+.section-2 {
+  height: 100%;
+  background-color: #ffffff;
+  position: relative;
+
+  .S2Lower {
+    display: flex;
+    flex-direction: column;
+    margin-left: 97px;
+    margin-right: 100px;
+    width: 100%;
+
+    .S2Title {
+      margin-bottom: 75px;
+
+      .S2Text {
+        font-size: 30px;
+        line-height: 42px;
+
+        @media (min-width: 1280px) {
+          font-size: 36px;
+          line-height: 48px;
+        }
+      }
+    }
+
+    .S2ImageBox {
+      display: flex;
+      justify-content: space-evenly; // distribute images evenly
+      align-items: center;
+      flex-wrap: wrap; // allow wrapping on smaller screens
+      gap: 50px;
+
+      .logoBox {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+
+        img {
+          object-fit: contain;
+        }
+      }
+    }
+  }
+}
+
+.google {
+  width: clamp(120px, 14vw, 188.1px);
+  height: auto;
+}
+
+.intel {
+  width: clamp(80px, 12vw, 104.23px);
+  height: auto;
+}
+
+.apple {
+  width: clamp(45px, 6vw, 60.38px);
+  height: auto;
+}
+
+.dentsu {
+  width: clamp(100px, 12vw, 149.67px);
+  height: auto;
+}
+
+.ddb {
+  width: clamp(70px, 8vw, 96.5px);
+  height: auto;
+}
+
+.microsoft {
+  width: clamp(140px, 16vw, 211.33px);
+  height: auto;
+}
+
+.section-3 {
+  position: relative;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  background: url('../../assets/images/companies/PeopleBG.png') center/cover
+    no-repeat;
+  background-color: #ffffff;
+
+  @media (min-width: 1280px) {
+    height: 564px;
+    width: auto;
+  }
+
+  @media (min-width: 1280px) {
+    height: auto;
+    aspect-ratio: 16 / 9;
+    width: auto;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.55); // slightly translucent
+    backdrop-filter: blur(2px);
+    z-index: 1;
+
+    @media (min-width: 728px) {
+      background: rgba(
+        255,
+        255,
+        255,
+        0.75
+      ); // more opacity for bigger mobile/tablet
+    }
+
+    /* --- REMOVE OVERLAY ON DESKTOP (optional) --- */
+    @media (min-width: 1024px) {
+      content: none;
+    }
+  }
+
+  .S3TextBox {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 60px;
+    margin-left: 0;
+    margin-bottom: 60px;
+    margin-right: 5%;
+
+    @media (min-width: 768px) {
+      margin-top: 80px;
+      margin-left: 0%;
+      margin-right: 20%; /* pushes text left, makes room for image */
+      margin-bottom: 80px;
+    }
+
+    @media (min-width: 1024px) {
+      margin-top: 100px;
+      margin-left: 0%;
+      margin-right: 35%; /* similar effect to your 673px but proportional */
+      margin-bottom: 90px;
+    }
+
+    @media (min-width: 1280px) {
+      margin-top: 130px;
+      margin-left: 99px; /* keep your exact spacing */
+      margin-right: 673px; /* same effect for 1280px */
+      margin-bottom: 99px;
+    }
+
+    .S3Title {
+      font-size: 20px;
+      line-height: 26px;
+      margin-bottom: 40px;
+      font-family: var(--primary-font);
+
+      @media (min-width: 768px) {
+        font-size: 26px;
+        line-height: 32px;
+      }
+
+      @media (min-width: 1024px) {
+        font-size: 30px;
+        line-height: 36px;
+      }
+
+      @media (min-width: 1280px) {
+        font-size: 36px;
+        line-height: 42px;
+      }
+    }
+
+    .S3Text {
+      font-size: 12px;
+      line-height: 22px;
+      margin-bottom: 41px;
+      font-family: var(--primary-font);
+
+      @media (min-width: 1280px) {
+        font-size: 14px;
+        line-height: 24px;
+      }
+    }
+
+    /* BUTTON Section */
+    /* Mobile (default 425px) */
+    .S3button {
+      font-family: var(--primary-font);
+      width: 120px;
+      height: 50px;
+      display: inline-block;
+
+      /* Tablet: ≥ 768px */
+      @media (min-width: 768px) {
+        width: 150px;
+        height: 50px;
+        line-height: 20px;
+      }
+
+      /* Your base design: ≥ 1280px */
+      @media (min-width: 1280px) {
+        width: 200px;
+        height: 40px;
+        line-height: 30px;
+      }
+    }
+  }
+}
+
+.section-4 {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9; /* keeps full background area */
+  background-image: url('../../assets/images/AboutImage2.png');
+  background-size: cover; // keep image proportional
+  background-position: center; // center FOR ALL screen sizes
+  background-repeat: no-repeat;
+}

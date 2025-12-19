@@ -1,0 +1,114 @@
+.LoginPage {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .LSection1 {
+    position: relative;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 55px 20px;
+
+    @media (min-width: 768px) {
+      padding: 55px 60px;
+    }
+
+    @media (min-width: 1024px) {
+      padding: 55px 80px;
+      flex-direction: row;
+      justify-content: space-between; // space between left content and right image
+      align-items: flex-start;
+    }
+
+    @media (min-width: 1280px) {
+      padding: 55px 100px;
+    }
+
+    .LeftContent {
+      position: relative;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      flex: 1; // take remaining width on desktop
+
+      img {
+        width: 128px;
+        height: 52.93px;
+        object-fit: contain;
+      }
+
+      .LSTitle {
+        margin-top: clamp(20.6px, 4.85vw, 62.07px);
+        font-size: 28px;
+        line-height: 24px;
+        font-weight: 600;
+        font-family: var(--primary-font);
+      }
+
+      .LSText {
+        margin-top: clamp(5.31px, 1.25vw, 16px);
+        font-size: 12px;
+        line-height: 22px;
+        font-weight: 400;
+        font-family: var(--primary-font);
+      }
+
+      .LSInput1 {
+        margin-top: clamp(22.58px, 5.31vw, 68px);
+        font-family: var(--primary-font);
+        width: 330px;
+        height: 25px;
+        border-bottom: 1px solid #a3a3a3;
+      }
+
+      .LSInput2 {
+        margin-top: clamp(19.92px, 4.69vw, 60px);
+        font-family: var(--primary-font);
+        width: 330px;
+        height: 25px;
+        border-bottom: 1px solid #a3a3a3;
+      }
+
+      .LSText2 {
+        margin-top: clamp(12.28px, 2.89vw, 37px);
+        width: 330px;
+        height: 31px;
+        font-size: 12px;
+        line-height: 22px;
+        font-weight: 400;
+        font-family: var(--primary-font);
+      }
+
+      /* Mobile / tablet right image below content */
+      .RightImageMobile {
+        width: clamp(208px, 50vw, 653px);
+        height: clamp(230px, 55vw, 722px);
+        object-fit: contain;
+        margin: 55px auto 0 auto;
+
+        @media (min-width: 1024px) {
+          display: none; // hide on desktop
+        }
+      }
+    }
+
+    /* Desktop right image */
+    .RightImageDesktop {
+      display: none; // hidden on mobile/tablet
+      @media (min-width: 1024px) {
+        display: block;
+        width: clamp(208px, 50vw, 653px);
+        height: clamp(230px, 55vw, 722px);
+        object-fit: contain;
+        margin-left: 80px;
+      }
+    }
+  }
+}

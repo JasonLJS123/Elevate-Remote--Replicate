@@ -1,0 +1,135 @@
+/* About page content grows to fill remaining space */
+.aboutCanvas {
+  display: flex;
+  flex-direction: column;
+  flex: 1; // grow to fill vertical space if content is short
+  min-height: 0; // allow children to shrink correctly
+  width: 100%;
+  background-color: #ffffff;
+  max-width: 1280px;
+  margin: 0 auto;
+
+  /* Direct children min-height fix */
+  > * {
+    min-height: 0;
+  }
+
+  /* Top & bottom images keep natural height */
+  .AImage,
+  .AImage2 {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 auto; // do not stretch
+    min-height: 0;
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      display: block;
+    }
+  }
+
+  /* Text section grows to fill remaining space */
+  .ASection1 {
+    flex: 1 1 auto; // stretch if content is short
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    width: 100%;
+
+    .AS1Box {
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      padding: 0 50px;
+
+      @media (min-width: 768px) {
+        padding: 0 80px;
+      }
+
+      @media (min-width: 1280px) {
+        padding: 0 100px;
+      }
+
+      .AS1Upper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex-grow: 1;
+        width: 100%;
+
+        .AS1Title {
+          margin-bottom: 42px;
+        }
+
+        .AS1TextBox {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 20px;
+
+          .AS1TextLeft,
+          .AS1TextRight {
+            width: 48%;
+          }
+        }
+      }
+
+      .AS1Lower {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        .AS1Title2 {
+          margin-top: 115px;
+        }
+
+        .AS1ImageBox {
+          display: flex;
+          justify-content: center;
+          margin-top: 74px;
+          margin-bottom: 99.21px;
+
+          img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+          }
+        }
+      }
+    }
+  }
+
+  /* Bottom image extra spacing */
+  .AImage2 {
+    img {
+      margin-top: 60px;
+    }
+  }
+}
+
+/* Text sizes remain responsive */
+.AS1TextLeft p,
+.AS1TextRight p {
+  font-size: 12px;
+  line-height: 26px;
+}
+
+@media (min-width: 768px) {
+  .AS1TextLeft p,
+  .AS1TextRight p {
+    font-size: 14px;
+    line-height: 24px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .AS1TextLeft p,
+  .AS1TextRight p {
+    font-size: 16px;
+    line-height: 28px;
+  }
+}

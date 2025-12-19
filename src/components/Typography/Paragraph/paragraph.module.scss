@@ -1,0 +1,16 @@
+.root {
+  margin: 0;
+  text-align: var(--align, left);
+  color: var(--color, var(--paragraph-color));
+  font-size: var(--font-size-small, var(--font-size));
+  font-weight: var(--bold, normal);
+  text-decoration: var(--text-decoration, none);
+  text-transform: var(--text-transform, none);
+  line-height: var(--line-height, 18px);
+  letter-spacing: var(--letter-spacing, 0);
+  font-family: var(--font-family, var(--primary-font));
+
+  @media screen and (min-width: 1024px) {
+    font-size: var(--font-size, 14px);
+  }
+}
