@@ -1,18 +1,8 @@
-/* About page content grows to fill remaining space */
 .aboutCanvas {
-  display: flex;
-  flex-direction: column;
-  flex: 1; // grow to fill vertical space if content is short
-  min-height: 0; // allow children to shrink correctly
   width: 100%;
   background-color: #ffffff;
   max-width: 1280px;
   margin: 0 auto;
-
-  /* Direct children min-height fix */
-  > * {
-    min-height: 0;
-  }
 
   /* Top & bottom images keep natural height */
   .AImage,
@@ -83,21 +73,41 @@
         width: 100%;
 
         .AS1Title2 {
-          margin-top: 115px;
+          margin-top: 50px;
+          margin-bottom: 50px;
         }
+      }
+    }
 
-        .AS1ImageBox {
-          display: flex;
-          justify-content: center;
-          margin-top: 74px;
-          margin-bottom: 99.21px;
+    .AS2ImageBox {
+      display: flex;
+      justify-content: space-evenly; // distribute images evenly
+      flex-wrap: wrap; // allow wrapping on smaller screens
+      gap: 50px;
 
-          img {
-            width: 100%;
-            max-width: 100%;
-            height: auto;
-            object-fit: contain;
-          }
+      @media (min-width: 768px) {
+        margin-left: 40px;
+        margin-right: 40px;
+      }
+
+      @media (min-width: 1024px) {
+        margin-left: 60px;
+        margin-right: 60px;
+      }
+
+      @media (min-width: 1280px) {
+        margin-left: 80px;
+        margin-right: 80px;
+      }
+
+      .logoBox {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+
+        img {
+          object-fit: contain;
         }
       }
     }
@@ -132,4 +142,34 @@
     font-size: 16px;
     line-height: 28px;
   }
+}
+
+.google {
+  width: clamp(120px, 14vw, 188.1px);
+  height: auto;
+}
+
+.intel {
+  width: clamp(80px, 12vw, 104.23px);
+  height: auto;
+}
+
+.apple {
+  width: clamp(45px, 6vw, 60.38px);
+  height: auto;
+}
+
+.dentsu {
+  width: clamp(100px, 12vw, 149.67px);
+  height: auto;
+}
+
+.ddb {
+  width: clamp(70px, 8vw, 96.5px);
+  height: auto;
+}
+
+.microsoft {
+  width: clamp(140px, 16vw, 211.33px);
+  height: auto;
 }

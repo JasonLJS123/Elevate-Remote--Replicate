@@ -35,16 +35,11 @@ export default function Header() {
   const { get_user } = useUser();
   const { translate, currentLang } = useLocales();
 
-  const [anchorEl, setAnchorEl] = useState(null);
-  const open = Boolean(anchorEl);
-
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+  //Menu
+  const [MenuAnchorEl, setMenuAnchorEl] = useState(null);
+  const openMenu = Boolean(MenuAnchorEl);
+  const handleMenuClick = (e) => setMenuAnchorEl(e.currentTarget);
+  const handleMenuClose = () => setMenuAnchorEl(null);
 
   const [scrolled, setScrolled] = useState(false);
 
@@ -127,13 +122,14 @@ export default function Header() {
               color='#ffffff' // text color
               bold='600' // text boldness
               className={styles.button}
-              onClick={handleClick}
+              onClick={handleMenuClick}
             />
 
             <Menu
-              anchorEl={anchorEl}
-              open={open}
-              onClose={handleClose}
+              anchorEl={MenuAnchorEl}
+              open={openMenu}
+              onClose={handleMenuClose}
+              disableAutoFocusItem
               anchorOrigin={{
                 vertical: 'bottom',
                 horizontal: 'right',
@@ -142,15 +138,17 @@ export default function Header() {
                 vertical: 'top',
                 horizontal: 'right',
               }}
-              PaperProps={{
-                sx: {
-                  mt: '17px',
-                  borderRadius: '20px',
-                  overflow: 'hidden',
+              slotProps={{
+                paper: {
+                  sx: {
+                    mt: '17px',
+                    borderRadius: '20px',
+                    overflow: 'hidden',
+                  },
                 },
               }}
             >
-              <MenuItem onClick={handleClose} className={styles.menuItem}>
+              <MenuItem className={styles.menuItem} autoFocus={false}>
                 <img src={item1} alt='Find A Job' className={styles.menuIcon} />
 
                 <Paragraph
@@ -160,11 +158,11 @@ export default function Header() {
                   fontfamily='var(--primary-font)'
                   className={styles.menuText}
                 >
-                  Find A Job
+                  {translate('Find A Job')}
                 </Paragraph>
               </MenuItem>
 
-              <MenuItem onClick={handleClose} className={styles.menuItem}>
+              <MenuItem className={styles.menuItem}>
                 <img
                   src={item2}
                   alt='For Companies'
@@ -178,11 +176,11 @@ export default function Header() {
                   fontfamily='var(--primary-font)'
                   className={styles.menuText}
                 >
-                  For Companies
+                  {translate('For Companies')}
                 </Paragraph>
               </MenuItem>
 
-              <MenuItem onClick={handleClose} className={styles.menuItem}>
+              <MenuItem className={styles.menuItem}>
                 <img src={item3} alt='About Us' className={styles.menuIcon} />
                 <Paragraph
                   size='16px'
@@ -191,11 +189,11 @@ export default function Header() {
                   fontfamily='var(--primary-font)'
                   className={styles.menuText}
                 >
-                  About Us
+                  {translate('About Us')}
                 </Paragraph>
               </MenuItem>
 
-              <MenuItem onClick={handleClose} className={styles.menuItem}>
+              <MenuItem className={styles.menuItem}>
                 <img src={item4} alt='Contact Us' className={styles.menuIcon} />
 
                 <Paragraph
@@ -205,7 +203,7 @@ export default function Header() {
                   fontfamily='var(--primary-font)'
                   className={styles.menuText}
                 >
-                  Contact Us
+                  {translate('Contact Us')}
                 </Paragraph>
               </MenuItem>
             </Menu>

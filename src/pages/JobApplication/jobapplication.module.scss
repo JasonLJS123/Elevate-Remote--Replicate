@@ -1,0 +1,92 @@
+.JobApplicationPage {
+  position: relative;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  background-color: #eef7f5;
+
+  .JSection1 {
+    position: relative;
+    width: 100%;
+    padding: 100px 20px 0px 20px;
+
+    @media (min-width: 768px) {
+      padding: 140px 60px 0px 60px;
+    }
+
+    @media (min-width: 1024px) {
+      padding: 180px 80px 0px 80px;
+    }
+
+    @media (min-width: 1280px) {
+      padding: 186px 100px 0px 100px;
+    }
+
+    .JS1Box1 {
+      position: relative;
+      width: 100%;
+      padding: 25px 35px;
+      border-radius: 10px;
+      background-color: #ffffff;
+
+      .JS1Top {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+
+        .JS1Image1 {
+          position: relative;
+          width: 260px;
+          height: 260px;
+          border-radius: 10px;
+          object-fit: cover;
+        }
+
+        .JS1TextBox1 {
+          position: relative;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: flex-start;
+
+          .JS1TitleBox1 {
+            position: relative;
+            padding-left: 20px;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: flex-start;
+
+            .JS1Image2 {
+              position: relative;
+              padding-top: 3px;
+              padding-left: 15px;
+              padding-right: 8px;
+
+              img {
+                width: 12px;
+                height: 12px;
+                object-fit: contain;
+              }
+            }
+
+            .JS1Image3 {
+              position: relative;
+              padding-left: 46px;
+
+              img {
+                width: 20px;
+                height: 25px;
+                object-fit: contain;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

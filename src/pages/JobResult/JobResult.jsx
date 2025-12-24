@@ -19,10 +19,14 @@ import Button from '../../components/Button/Button';
 import FormInput from '../../components/FormInput/FormInput';
 import useUser from '../../hooks/useUser';
 import useLocales from '../../hooks/useLocales';
-import styles from './home.module.scss';
+import styles from './jobresult.module.scss';
+import Menu from '@mui/material/Menu';
+import { MenuItem, styled } from '@mui/material';
 
-import HS1Image1 from '../../assets/images/home/HS1Image1.png';
-import HS1Image2 from '../../assets/images/home/HS1Image2.png';
+//assets
+import JS1Image1 from '../../assets/images/jobfind/JS1Image1.png';
+import JS1Image2 from '../../assets/images/jobfind/JS1Image2.png';
+import JS1Image3 from '../../assets/images/jobfind/JS1Image3.png';
 import HS3Image1 from '../../assets/images/home/HS3Image1.svg';
 import HS3Image2 from '../../assets/images/home/HS3Image2.svg';
 import HS3Image3 from '../../assets/images/home/HS3Image3.svg';
@@ -42,24 +46,83 @@ import HS4Image8 from '../../assets/images/home/HS4Image8.jpg';
 import HS4Location from '../../assets/images/home/HS4Location.svg';
 import HS4Luggage from '../../assets/images/home/HS4Luggage.svg';
 import HS4Clock from '../../assets/images/home/HS4Clock.svg';
-import HS5Image1 from '../../assets/images/home/HS5Image1.svg';
-import HS5Image2 from '../../assets/images/home/HS5Image2.svg';
-import HS5Image3 from '../../assets/images/home/HS5Image3.svg';
 
-import Shape1 from '../../assets/images/home/Shape1.svg';
-import Shape2 from '../../assets/images/home/Shape2.svg';
-import Shape3 from '../../assets/images/home/Shape3.svg';
-import Google from '../../assets/images/companies/Google1.png';
-import Intel from '../../assets/images/companies/Intel.png';
-import Apple from '../../assets/images/companies/Apple.png';
-import dentsu from '../../assets/images/companies/dentsu.png';
-import DDB from '../../assets/images/companies/DDB.png';
-import Microsoft from '../../assets/images/companies/Microsoft.png';
-
-export default function Home() {
+export default function Job_Finding() {
   const navigate = useNavigate();
   const { get_user } = useUser();
   const { translate, currentLang } = useLocales();
+
+  // Work types
+  const [workTypeAnchorEl, setWorkTypeAnchorEl] = useState(null);
+  const openWorkType = Boolean(workTypeAnchorEl);
+  const handleWorkTypeClick = (e) => setWorkTypeAnchorEl(e.currentTarget);
+  const handleWorkTypeClose = () => setWorkTypeAnchorEl(null);
+
+  const worktypes = [
+    translate('Full Time'),
+    translate('Part Time'),
+    translate('Contract'),
+    translate('Casual'),
+  ];
+
+  // Workplaces
+  const [workplaceAnchorEl, setWorkplaceAnchorEl] = useState(null);
+  const openWorkplace = Boolean(workplaceAnchorEl);
+  const handleWorkplaceClick = (e) => setWorkplaceAnchorEl(e.currentTarget);
+  const handleWorkplaceClose = () => setWorkplaceAnchorEl(null);
+
+  const workplaces = [
+    translate('Remote'),
+    translate('Hybrid'),
+    translate('On-site'),
+  ];
+
+  // Pay
+  const [PayAnchorEl, setPayAnchorEl] = useState(null);
+  const openPay = Boolean(PayAnchorEl);
+  const handlePayClick = (e) => setPayAnchorEl(e.currentTarget);
+  const handlePayClose = () => setPayAnchorEl(null);
+
+  const pay = [
+    translate('3k to 4k'),
+    translate('4k to 5k'),
+    translate('5k to 6k'),
+    translate('6k to 7k'),
+    translate('7k to 8k'),
+    translate('8k & above'),
+  ];
+
+  // Country
+  const [CountryAnchorEl, setCountryAnchorEl] = useState(null);
+  const openCountry = Boolean(CountryAnchorEl);
+  const handleCountryClick = (e) => setCountryAnchorEl(e.currentTarget);
+  const handleCountryClose = () => setCountryAnchorEl(null);
+
+  const country = [
+    translate('Afghanistan'),
+    translate('Albania'),
+    translate('Algeria'),
+    translate('American Samoa'),
+    translate('Angola'),
+    translate('Anguilla'),
+  ];
+
+  //Circle
+  const [circleStates, setCircleStates] = useState({});
+
+  const Circle = styled('div')(({ selected }) => ({
+    width: '15px',
+    height: '15px',
+    borderRadius: '50%',
+    border: '1px solid #fff',
+    flexShrink: 0,
+    backgroundColor: selected ? '#FFFFFF' : 'transparent',
+    transition: 'background-color 0.2s ease',
+  }));
+
+  //Selected
+  const [selectedOptions, setSelectedOptions] = useState({});
+
   const sliderRef = useRef(null);
 
   const { ref, inView } = useInView({
@@ -110,353 +173,347 @@ export default function Home() {
       ) : (
         <React.Fragment>
           <div style={{ overflow: 'hidden' }}>
-            <div className={styles.homePage}>
-              <div className={styles.HSection1}>
-                <div className={styles.HS1BgImage}>
-                  <div className={styles.HS1ImageBox}>
-                    <div className={styles.HS1InnerImage1}>
-                      <div className={styles.HS1InnerImage1Size}>
-                        <img src={HS1Image1} alt='HS1Image1' />
-                      </div>
+            <div className={styles.JobResultPage}>
+              <div className={styles.JSection1}>
+                <div className={styles.JS1Box}>
+                  <div className={styles.JS1Content}>
+                    <div className={styles.JS1Text}>
+                      <Paragraph
+                        size={'clamp(28px, 4vw, 42px)'}
+                        lineHeight={'clamp(32px, 5vw, 42px)'}
+                        bold={'700'}
+                        color={'#FFFFFF'}
+                      >
+                        {translate('The right match')}
+                        <br />
+                        {translate('changes everything')}
+                      </Paragraph>
                     </div>
 
-                    <div className={styles.HS1InnerImage2}>
-                      <div className={styles.HS1InnerImage2Size}>
-                        <img src={HS1Image2} alt='HS1Image2' />
+                    <div className={styles.JS1Text2}>
+                      <Paragraph
+                        size={'clamp(14px, 2vw, 16px)'}
+                        lineHeight={'clamp(20px, 3vw, 24px)'}
+                        bold={'400'}
+                        color={'#FFFFFF'}
+                      >
+                        {translate(
+                          'Your dream job is out there — let’s find it together.'
+                        )}
+                      </Paragraph>
+                    </div>
+
+                    <div className={styles.JS1Container}>
+                      <div className={styles.JS1SearchWrapper}>
+                        <div className={styles.JS1InputWrapper}>
+                          <FormInput
+                            bg='white'
+                            padding={'20px 33px'}
+                            size={'clamp(12px, 2.2vw, 14px)'}
+                            phfontweight='400'
+                            phtextColor={'#83BFB3'}
+                            placeholder={translate('Search by job title')}
+                            className={styles.JS1Input}
+                          />
+
+                          <div className={styles.JS1Image}>
+                            <img src={JS1Image1} alt='JS1Image1' />
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className={styles.JS1RowBoxes}>
+                        <div className={styles.JS1Boxes}>
+                          <div
+                            className={styles.JS1Text3}
+                            onClick={handleWorkTypeClick}
+                          >
+                            <Paragraph
+                              size={'clamp(12px, 2.2vw, 14px)'}
+                              lineHeight={'clamp(20px, 3vw, 24px)'}
+                              bold={'600'}
+                              color={'#FFFFFF'}
+                            >
+                              {translate('Work Types')}
+                            </Paragraph>
+                          </div>
+                          <div className={styles.JS1Image2}>
+                            <img src={JS1Image2} alt='JS1Image' />
+                          </div>
+
+                          <Menu
+                            anchorEl={workTypeAnchorEl}
+                            open={openWorkType}
+                            onClose={handleWorkTypeClose}
+                            disableAutoFocusItem
+                            anchorOrigin={{
+                              vertical: 'bottom',
+                              horizontal: 'center',
+                            }}
+                            transformOrigin={{
+                              vertical: 'top',
+                              horizontal: 'center',
+                            }}
+                            slotProps={{
+                              paper: {
+                                sx: {
+                                  mt: '15px',
+                                  borderRadius: '10px',
+                                  overflow: 'hidden',
+                                  bgcolor: '#496A63',
+                                  width: '139px',
+                                },
+                              },
+                            }}
+                          >
+                            {worktypes.map((option) => (
+                              <MenuItem key={option}>
+                                <Circle
+                                  selected={!!circleStates[option]} // default false
+                                  onClick={() =>
+                                    setCircleStates((prev) => ({
+                                      ...prev,
+                                      [option]: !prev[option], // toggle only this option
+                                    }))
+                                  }
+                                />
+                                <Paragraph
+                                  size='12px'
+                                  lineHeight='24px'
+                                  bold={circleStates[option] ? '700' : '400'}
+                                  color='#FFFFFF'
+                                  style={{ paddingLeft: '5px' }}
+                                >
+                                  {translate(option)}
+                                </Paragraph>
+                              </MenuItem>
+                            ))}
+                          </Menu>
+                        </div>
+
+                        <div className={styles.JS1Boxes}>
+                          <div
+                            className={styles.JS1Text3}
+                            onClick={handleWorkplaceClick}
+                          >
+                            <Paragraph
+                              size={'clamp(12px, 2.2vw, 14px)'}
+                              lineHeight={'clamp(20px, 3vw, 24px)'}
+                              bold={'600'}
+                              color={'#FFFFFF'}
+                            >
+                              {translate('Workplace')}
+                            </Paragraph>
+                          </div>
+                          <div className={styles.JS1Image2}>
+                            <img src={JS1Image2} alt='JS1Image' />
+                          </div>
+
+                          <Menu
+                            anchorEl={workplaceAnchorEl}
+                            open={openWorkplace}
+                            onClose={handleWorkplaceClose}
+                            disableAutoFocusItem
+                            anchorOrigin={{
+                              vertical: 'bottom',
+                              horizontal: 'center',
+                            }}
+                            transformOrigin={{
+                              vertical: 'top',
+                              horizontal: 'center',
+                            }}
+                            slotProps={{
+                              paper: {
+                                sx: {
+                                  mt: '15px',
+                                  borderRadius: '10px',
+                                  overflow: 'hidden',
+                                  bgcolor: '#496A63',
+                                  width: '139px',
+                                },
+                              },
+                            }}
+                          >
+                            {workplaces.map((option) => (
+                              <MenuItem key={option}>
+                                <Circle
+                                  selected={!!circleStates[option]}
+                                  onClick={() =>
+                                    setCircleStates((prev) => ({
+                                      ...prev,
+                                      [option]: !prev[option],
+                                    }))
+                                  }
+                                />
+                                <Paragraph
+                                  size='12px'
+                                  lineHeight='24px'
+                                  bold={circleStates[option] ? '700' : '400'}
+                                  color='#FFFFFF'
+                                  style={{ paddingLeft: '5px' }}
+                                >
+                                  {translate(option)}
+                                </Paragraph>
+                              </MenuItem>
+                            ))}
+                          </Menu>
+                        </div>
+
+                        <div className={styles.JS1Boxes}>
+                          <div
+                            className={styles.JS1Text3}
+                            onClick={handlePayClick}
+                          >
+                            <Paragraph
+                              size={'clamp(12px, 2.2vw, 14px)'}
+                              lineHeight={'clamp(20px, 3vw, 24px)'}
+                              bold={'600'}
+                              color={'#FFFFFF'}
+                            >
+                              {translate('Pay')}
+                            </Paragraph>
+                          </div>
+                          <div className={styles.JS1Image2}>
+                            <img src={JS1Image2} alt='JS1Image' />
+                          </div>
+
+                          <Menu
+                            anchorEl={PayAnchorEl}
+                            open={openPay}
+                            onClose={handlePayClose}
+                            disableAutoFocusItem
+                            anchorOrigin={{
+                              vertical: 'bottom',
+                              horizontal: 'center',
+                            }}
+                            transformOrigin={{
+                              vertical: 'top',
+                              horizontal: 'center',
+                            }}
+                            slotProps={{
+                              paper: {
+                                sx: {
+                                  mt: '15px',
+                                  borderRadius: '10px',
+                                  overflow: 'hidden',
+                                  bgcolor: '#496A63',
+                                  width: '139px',
+                                },
+                              },
+                            }}
+                          >
+                            {pay.map((option) => (
+                              <MenuItem key={option}>
+                                <Circle
+                                  selected={!!circleStates[option]}
+                                  onClick={() =>
+                                    setCircleStates((prev) => ({
+                                      ...prev,
+                                      [option]: !prev[option],
+                                    }))
+                                  }
+                                />
+                                <Paragraph
+                                  size='12px'
+                                  lineHeight='24px'
+                                  bold={circleStates[option] ? '700' : '400'}
+                                  color='#FFFFFF'
+                                  style={{ paddingLeft: '5px' }}
+                                >
+                                  {translate(option)}
+                                </Paragraph>
+                              </MenuItem>
+                            ))}
+                          </Menu>
+                        </div>
+
+                        <div className={styles.JS1Boxes}>
+                          <div
+                            className={styles.JS1Text3}
+                            onClick={handleCountryClick}
+                          >
+                            <Paragraph
+                              size={'clamp(12px, 2.2vw, 14px)'}
+                              lineHeight={'clamp(20px, 3vw, 24px)'}
+                              bold={'600'}
+                              color={'#FFFFFF'}
+                            >
+                              {translate('Country')}
+                            </Paragraph>
+                          </div>
+                          <div className={styles.JS1Image2}>
+                            <img src={JS1Image2} alt='JS1Image' />
+                          </div>
+
+                          <Menu
+                            anchorEl={CountryAnchorEl}
+                            open={openCountry}
+                            onClose={handleCountryClose}
+                            disableAutoFocusItem
+                            anchorOrigin={{
+                              vertical: 'bottom',
+                              horizontal: 'center',
+                            }}
+                            transformOrigin={{
+                              vertical: 'top',
+                              horizontal: 'center',
+                            }}
+                            slotProps={{
+                              paper: {
+                                sx: {
+                                  mt: '15px',
+                                  borderRadius: '10px',
+                                  overflow: 'hidden',
+                                  bgcolor: '#496A63',
+                                  width: '139px',
+                                },
+                              },
+                            }}
+                          >
+                            {country.map((option) => (
+                              <MenuItem
+                                key={option}
+                                onMouseDown={(e) => e.preventDefault()}
+                                onClick={() =>
+                                  setSelectedOptions((prev) => ({
+                                    ...prev,
+                                    [option]: !prev[option],
+                                  }))
+                                }
+                              >
+                                <Paragraph
+                                  size='12px'
+                                  lineHeight='24px'
+                                  bold={selectedOptions[option] ? '700' : '400'}
+                                  color='#FFFFFF'
+                                  style={{ paddingLeft: '5px' }}
+                                >
+                                  {translate(option)}
+                                </Paragraph>
+                              </MenuItem>
+                            ))}
+                          </Menu>
+                        </div>
                       </div>
                     </div>
                   </div>
 
-                  <div className={styles.HS1TextBox}>
-                    <Paragraph className={styles.HS1Title}>
-                      <span style={{ color: '#496a63' }}>
-                        {translate('Your')}
-                      </span>
-                      <span style={{ color: '#83BFB3' }}>
-                        {translate(' Path')}
-                      </span>
-                      <span style={{ color: '#496a63' }}>{translate(',')}</span>
-                      <br />
-                      <span style={{ color: '#496a63' }}>
-                        {translate('Our ')}
-                      </span>
-                      <span style={{ color: '#83BFB3' }}>
-                        {translate(' Priority')}
-                      </span>
-                      <span style={{ color: '#496a63' }}>{translate('.')}</span>
-                    </Paragraph>
-
-                    <Paragraph color={'#000000'} className={styles.HS1Text}>
-                      {translate(
-                        'Each month, more than 3 million job seekers turn to website in their search for work, making over 140,000 applications every single day'
-                      )}
-                    </Paragraph>
-
-                    <div className={styles.HS1SearchWrapper}>
-                      <div className={styles.HS1InputWrapper}>
-                        <FormInput
-                          bg='white'
-                          padding={'13px 12px'}
-                          size='clamp(12px, 2.2vw, 14px)'
-                          phfontweight='400'
-                          phtextColor={'#83BFB3'}
-                          placeholder={translate(
-                            'Enter keywords for best match'
-                          )}
-                          className={styles.HS1Input}
-                        />
-
-                        {/* Button inside input wrapper */}
-                        <Button
-                          label={translate('Search')}
-                          bg='#83BFB3'
-                          hvbg={'#83BFB3'}
-                          color='#fff'
-                          br='10px'
-                          size='14px'
-                          pd='0'
-                          className={styles.HS1InputButton}
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className={styles.theHS1ImageBox2}>
-                    <div className={styles.HS1Image1}>
-                      <div className={styles.HS1Image1Size}>
-                        <img src={HS1Image1} alt='HS1Image1' />
-                      </div>
-                    </div>
-
-                    <div className={styles.HS1Image2}>
-                      <div className={styles.HS1Image2Size}>
-                        <img src={HS1Image2} alt='HS1Image2' />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className={styles.HS1Shape1}>
-                  <div className={styles.HS1Shape1Size}>
-                    <img src={Shape1} alt='Shape1' />
-                  </div>
-                </div>
-
-                <div className={styles.HS1Shape2}>
-                  <div className={styles.HS1Shape2Size}>
-                    <img src={Shape2} alt='Shape2' />
-                  </div>
-                </div>
-
-                <div className={styles.HS1Shape3}>
-                  <div className={styles.HS1Shape3Size}>
-                    <img src={Shape3} alt='Shape3' />
+                  {/* IMAGE */}
+                  <div className={styles.JS1Image3}>
+                    <img src={JS1Image3} alt='JS1Image3' />
                   </div>
                 </div>
               </div>
 
-              <div className={styles.HSection2}>
-                <div className={styles.HS2Box}>
-                  <Paragraph textAlign='center' className={styles.HS2Title}>
-                    <span style={{ color: '#2C3F3C' }}>
-                      {translate('Trusted by ')}{' '}
-                    </span>
-                    <span style={{ color: '#83BFB3' }}>
-                      {translate('Companies ')}
-                    </span>
-                    <span style={{ color: '#2C3F3C' }}>
-                      {translate('across worldwide')}{' '}
-                    </span>
-                  </Paragraph>
-                </div>
-
-                <div className={styles.HS2ImageBox}>
-                  <div className={styles.logoBox + ' ' + styles.google}>
-                    <img src={Google} alt='Google' />
-                  </div>
-
-                  <div className={styles.logoBox + ' ' + styles.intel}>
-                    <img src={Intel} alt='Intel' />
-                  </div>
-
-                  <div className={styles.logoBox + ' ' + styles.apple}>
-                    <img src={Apple} alt='Apple' />
-                  </div>
-
-                  <div className={styles.logoBox + ' ' + styles.dentsu}>
-                    <img src={dentsu} alt='Dentsu' />
-                  </div>
-
-                  <div className={styles.logoBox + ' ' + styles.ddb}>
-                    <img src={DDB} alt='DDB' />
-                  </div>
-
-                  <div className={styles.logoBox + ' ' + styles.microsoft}>
-                    <img src={Microsoft} alt='Microsoft' />
-                  </div>
-                </div>
-              </div>
-
-              <div className={styles.HSection3}>
-                <div className={styles.HS3Box}>
-                  <Paragraph textAlign='left' className={styles.HS3Title}>
-                    <span style={{ color: '#2C3F3C' }}>
-                      {translate('Most Popular')}{' '}
-                    </span>
-                    <span style={{ color: '#83BFB3' }}>
-                      {translate('Categories')}
-                    </span>
-                  </Paragraph>
-
-                  <Paragraph
-                    textAlign='right'
-                    color={'#496a63'}
-                    className={styles.HS3Text}
-                  >
-                    {translate('All Categories')}
-                  </Paragraph>
-                </div>
-
-                <div className={styles.HS3Boxes}>
-                  <div className={styles.HS3BoxItem}>
-                    <div className={styles.HS3BoxContent}>
-                      <img
-                        src={HS3Image1}
-                        alt='HS3Image1'
-                        className={styles.boxIcon}
-                      />
-
-                      <Paragraph textAlign='left' className={styles.boxTitle}>
-                        {translate('Design &')}
-                        <br />
-                        {translate('Development')}
-                      </Paragraph>
-
-                      <Paragraph textAlign='left' className={styles.boxText}>
-                        {translate('2,000 Vacancies')}
-                      </Paragraph>
-                    </div>
-                  </div>
-
-                  <div className={styles.HS3BoxItem}>
-                    <div className={styles.HS3BoxContent}>
-                      <img
-                        src={HS3Image2}
-                        alt='HS3Image2'
-                        className={styles.boxIcon}
-                      />
-
-                      <Paragraph textAlign='left' className={styles.boxTitle}>
-                        {translate('Accounting &')}
-                        <br />
-                        {translate('Finance')}
-                      </Paragraph>
-
-                      <Paragraph textAlign='left' className={styles.boxText}>
-                        {translate('2,000 Vacancies')}
-                      </Paragraph>
-                    </div>
-                  </div>
-
-                  <div className={styles.HS3BoxItem}>
-                    <div className={styles.HS3BoxContent}>
-                      <img
-                        src={HS3Image3}
-                        alt='HS3Image3'
-                        className={styles.boxIcon}
-                      />
-
-                      <Paragraph textAlign='left' className={styles.boxTitle}>
-                        {translate('Advertising &')}
-                        <br />
-                        {translate('Media')}
-                      </Paragraph>
-
-                      <Paragraph textAlign='left' className={styles.boxText}>
-                        {translate('2,000 Vacancies')}
-                      </Paragraph>
-                    </div>
-                  </div>
-
-                  <div className={styles.HS3BoxItem}>
-                    <div className={styles.HS3BoxContent}>
-                      <img
-                        src={HS3Image4}
-                        alt='HS3Image4'
-                        className={styles.boxIcon}
-                      />
-
-                      <Paragraph textAlign='left' className={styles.boxTitle}>
-                        {translate('Call Centre &')}
-                        <br />
-                        {translate('Customer Service')}
-                      </Paragraph>
-
-                      <Paragraph textAlign='left' className={styles.boxText}>
-                        {translate('2,000 Vacancies')}
-                      </Paragraph>
-                    </div>
-                  </div>
-
-                  <div className={styles.HS3BoxItem}>
-                    <div className={styles.HS3BoxContent}>
-                      <img
-                        src={HS3Image5}
-                        alt='HS3Image5'
-                        className={styles.boxIcon}
-                      />
-
-                      <Paragraph textAlign='left' className={styles.boxTitle}>
-                        {translate('Education &')}
-                        <br />
-                        {translate('Training')}
-                      </Paragraph>
-
-                      <Paragraph textAlign='left' className={styles.boxText}>
-                        {translate('2,000 Vacancies')}
-                      </Paragraph>
-                    </div>
-                  </div>
-
-                  <div className={styles.HS3BoxItem}>
-                    <div className={styles.HS3BoxContent}>
-                      <img
-                        src={HS3Image6}
-                        alt='HS3Image6'
-                        className={styles.boxIcon}
-                      />
-
-                      <Paragraph textAlign='left' className={styles.boxTitle}>
-                        {translate('Consulting &')}
-                        <br />
-                        {translate('Strategy')}
-                      </Paragraph>
-
-                      <Paragraph textAlign='left' className={styles.boxText}>
-                        {translate('2,000 Vacancies')}
-                      </Paragraph>
-                    </div>
-                  </div>
-
-                  <div className={styles.HS3BoxItem}>
-                    <div className={styles.HS3BoxContent}>
-                      <img
-                        src={HS3Image7}
-                        alt='HS3Image7'
-                        className={styles.boxIcon}
-                      />
-
-                      <Paragraph textAlign='left' className={styles.boxTitle}>
-                        {translate('Community Services')}
-                        <br />
-                        {translate('& Development')}
-                      </Paragraph>
-
-                      <Paragraph textAlign='left' className={styles.boxText}>
-                        {translate('2,000 Vacancies')}
-                      </Paragraph>
-                    </div>
-                  </div>
-
-                  <div className={styles.HS3BoxItem}>
-                    <div className={styles.HS3BoxContent}>
-                      <img
-                        src={HS3Image8}
-                        alt='HS3Image8'
-                        className={styles.boxIcon}
-                      />
-
-                      <Paragraph textAlign='left' className={styles.boxTitle}>
-                        {translate('CEO &')}
-                        <br />
-                        {translate('General Management')}
-                      </Paragraph>
-
-                      <Paragraph textAlign='left' className={styles.boxText}>
-                        {translate('2,000 Vacancies')}
-                      </Paragraph>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className={styles.HSection4}>
+              <div className={styles.JSection2}>
                 <div className={styles.HS4Box}>
                   <Paragraph textAlign='left' className={styles.HS4Title}>
-                    <span style={{ color: '#83BFB3' }}>
-                      {translate('Jobs')}{' '}
-                    </span>
                     <span style={{ color: '#2C3F3C' }}>
-                      {translate('of the day')}
+                      {translate('Result(s) :')}
                     </span>
-                  </Paragraph>
-
-                  <Paragraph
-                    textAlign='right'
-                    color={'#496a63'}
-                    className={styles.HS4Text}
-                  >
-                    {translate('View More')}
+                    <span style={{ color: '#83BFB3' }}>
+                      {translate(' 2,000+ Related Posts')}
+                    </span>
                   </Paragraph>
                 </div>
 
@@ -1286,105 +1343,35 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <div className={styles.HSection5}>
-                <div className={styles.HS5Box}>
-                  <Paragraph textAlign='center' className={styles.HS5Title}>
-                    <span style={{ color: '#83BFB3' }}>
-                      {translate('Find & Hire')}{' '}
-                    </span>
-                    <span style={{ color: '#2C3F3C' }}>
-                      {translate('Experts for any Job')}
-                    </span>
-                  </Paragraph>
-                </div>
+                <div className={styles.HS4ButtonRow}>
+                  {/* Left button */}
+                  <Button
+                    label='Back'
+                    bg='#83BFB3'
+                    hvbg='#6DAAA0'
+                    color='#ffffff'
+                    bold='600'
+                    size='16px'
+                    br='10px'
+                    pd='0'
+                    className={styles.HS4NavButton}
+                  />
 
-                <div className={styles.HS5Box2}>
-                  {/* ===== Item 1 ===== */}
-                  <div className={styles.HS5ContentBox}>
-                    <img
-                      src={HS5Image1}
-                      alt='HS5 Icon'
-                      className={styles.HS5Icon}
-                    />
-
-                    <Paragraph
-                      textAlign='center'
-                      color='#496A63'
-                      className={styles.HS5Title}
-                    >
-                      {translate('Create Account')}
-                    </Paragraph>
-
-                    <Paragraph
-                      textAlign='center'
-                      color='#496A63'
-                      className={styles.HS5Text}
-                    >
-                      {translate(
-                        'It’s very easy to create an account and start your journey.'
-                      )}
-                    </Paragraph>
-                  </div>
-
-                  {/* ===== Item 2 ===== */}
-                  <div className={styles.HS5ContentBox}>
-                    <img
-                      src={HS5Image2}
-                      alt='HS5 Icon'
-                      className={styles.HS5Icon}
-                    />
-
-                    <Paragraph
-                      textAlign='center'
-                      color='#496A63'
-                      className={styles.HS5Title}
-                    >
-                      {translate('Complete Profile')}
-                    </Paragraph>
-
-                    <Paragraph
-                      textAlign='center'
-                      color='#496A63'
-                      className={styles.HS5Text}
-                    >
-                      {translate(
-                        'Complete your profile with all the info to get attention of client.'
-                      )}
-                    </Paragraph>
-                  </div>
-
-                  {/* ===== Item 3 ===== */}
-                  <div className={styles.HS5ContentBox}>
-                    <img
-                      src={HS5Image3}
-                      alt='HS5 Icon'
-                      className={styles.HS5Icon}
-                    />
-
-                    <Paragraph
-                      textAlign='center'
-                      color='#496A63'
-                      className={styles.HS5Title}
-                    >
-                      {translate('Apply job or hire')}
-                    </Paragraph>
-
-                    <Paragraph
-                      textAlign='center'
-                      color='#496A63'
-                      className={styles.HS5Text}
-                    >
-                      {translate(
-                        'Apply & get your preferable jobs with all the requirements and get it.'
-                      )}
-                    </Paragraph>
-                  </div>
+                  {/* Right button */}
+                  <Button
+                    label='Next Page'
+                    bg='#83BFB3'
+                    hvbg='#6DAAA0'
+                    color='#ffffff'
+                    bold='600'
+                    size='16px'
+                    br='10px'
+                    pd='0'
+                    className={styles.HS4NavButton}
+                  />
                 </div>
               </div>
-
-              <div className={styles.HSection6}></div>
             </div>
           </div>
         </React.Fragment>

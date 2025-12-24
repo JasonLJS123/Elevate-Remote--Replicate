@@ -1,26 +1,22 @@
 {
-  "HeaderPage Start from here":"HomePage Start from here",
+  "HeaderPage Start from here": "HomePage Start from here",
   "Home": "Home",
   "Find A Job": "Find A Job",
   "For Companies": "For Companies",
   "About Us": "About Us",
 
-
-
-  "FooterPage Start from here":"HomePage Start from here",
+  "FooterPage Start from here": "HomePage Start from here",
   "contactus@elevatematch.com": "contactus@elevatematch.com",
   "11 234 56 77 89 90": "11 234 56 77 89 90",
   "© All Rights Elevate Match": "© All Rights Elevate Match",
   "Find a Job": "Find a Job",
   "Blog": "Blog",
   "Contact Us": "Contact Us",
-  
 
-
-  "HomePage Start from here":"HomePage Start from here",
-  "Each month, more than 3 million job seekers turn to website in their search for work, making over 140,000 applications every single day":"Each month, more than 3 million job seekers turn to website in their search for work, making over 140,000 applications every single day",
+  "HomePage Start from here": "HomePage Start from here",
+  "Each month, more than 3 million job seekers turn to website in their search for work, making over 140,000 applications every single day": "Each month, more than 3 million job seekers turn to website in their search for work, making over 140,000 applications every single day",
   "Enter keywords for best match": "Enter keywords for best match",
-  "Search":"Search",
+  "Search": "Search",
   "Most Popular": "Most Popular",
   "Categories": "Categories",
   "All Categories": "All Categories",
@@ -91,9 +87,7 @@
   "Apply job or hire": "Apply job or hire",
   "Apply & get your preferable jobs with all the requirements and get it.": "Apply & get your preferable jobs with all the requirements and get it.",
 
-
-
-  "LoginPage Start from here":"LoginPage Start from here",
+  "LoginPage Start from here": "LoginPage Start from here",
   "Welcome Back,": "Welcome Back,",
   "Don’t have an account?": "Don’t have an account?",
   "Sign Up": "Sign Up",
@@ -102,16 +96,17 @@
   "Sign In": "Sign In",
   "By signing in, I agree to the": "By signing in, I agree to the",
   "Term & Conditions": "Term & Conditions",
+  "and": "and",
   "Privacy Policy": "Privacy Policy",
 
-
-
-  "SignUpPage Start from here":"SignUpPage Start from here",
+  "SignUpPage Start from here": "SignUpPage Start from here",
   "Get Started": "Get Started",
+  "Already have an account?": "Already have an account?",
+  "Full Name": "Full Name",
+  "Email": "Email",
+  "Select Country": "Select Country",
 
-
-
-  "AboutPage Start from here":"AboutPage Start from here",
+  "AboutPage Start from here": "AboutPage Start from here",
   "Your": "Your",
   "Path": "Path",
   ", Our": ", Our",
@@ -122,14 +117,12 @@
   "Companies": "Companies",
   "across worldwide": "across worldwide",
 
-
-
-  "CompaniesPage Start from here":"CompaniesPage Start from here",
+  "CompaniesPage Start from here": "CompaniesPage Start from here",
   "Find the best": "Find the best",
   "talent": "talent",
   "for": "for",
   "your company": "your company",
-  ".":".",
+  ".": ".",
   "At Elevate Match, we make that process seamless.": "At Elevate Match, we make that process seamless.",
   "We work closely with you to understand your company’s culture, goals, and the specific skills you’re seeking.": "We work closely with you to understand your company’s culture, goals, and the specific skills you’re seeking.",
   "Post A Job": "Post A Job",
@@ -141,6 +134,4 @@
   "Partner with Elevate Match and take the next step": "Partner with Elevate Match and take the next step",
   "in building a stronger, more dynamic workforce.": "in building a stronger, more dynamic workforce.",
   "Contact Us Now": "Contact Us Now"
-
-  
 }

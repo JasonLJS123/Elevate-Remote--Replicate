@@ -1,4 +1,4 @@
-.JobFindPage {
+.JobResultPage {
   position: relative;
   width: 100%;
   max-width: 1280px;
@@ -225,10 +225,10 @@
   }
 
   .JSection2 {
-    position: relative;
     width: 100%;
     padding-left: 20px;
     padding-right: 20px;
+    padding-bottom: 40px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -243,136 +243,13 @@
     @media (min-width: 1024px) {
       padding-left: 80px;
       padding-right: 80px;
-    }
-
-    @media (min-width: 1280px) {
-      padding-left: 100px;
-      padding-right: 100px;
-    }
-
-    .JS2Box {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      justify-content: space-between;
-      width: 100%;
-      align-items: flex-start;
-
-      .JS2Title {
-        width: auto;
-        font-weight: 700;
-        font-family: var(--primary-font);
-        font-size: clamp(
-          24px,
-          3vw,
-          36px
-        ); // font-size clamp from small to 1280px
-        line-height: clamp(28px, 4vw, 44px);
-        margin-top: clamp(34px, 7vw, 101px);
-        margin-bottom: clamp(28px, 6vw, 84px);
-      }
-
-      .JS2Text {
-        width: auto;
-        font-weight: 400;
-        font-family: var(--primary-font);
-
-        margin-top: clamp(42px, 8vw, 126px);
-        margin-bottom: clamp(31px, 7vw, 94px);
-
-        font-size: clamp(6px, 2vw, 16px);
-        line-height: clamp(10px, 3vw, 24px);
-
-        text-decoration: underline;
-      }
-    }
-
-    .JS2Boxes {
-      display: flex;
-      gap: 56px;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: flex-start;
-
-      @media (min-width: 571px) {
-        justify-content: space-between;
-      }
-
-      @media (min-width: 916px) {
-        justify-content: flex-start;
-      }
-
-      @media (min-width: 1240px) {
-        justify-content: space-between;
-      }
-
-      .JS2BoxItem {
-        width: 228px;
-        background-color: #ffffff;
-        border-radius: 10px;
-        position: relative;
-
-        .JS2BoxContent {
-          position: relative;
-          margin-left: 20px;
-          margin-top: 23px;
-
-          .boxIcon {
-            position: relative;
-            width: 60px;
-            height: 60px;
-          }
-
-          .boxTitle {
-            margin-top: 52px;
-            font-size: 16px;
-            font-weight: 700;
-            font-family: var(--primary-font);
-            color: #83bfb3;
-            line-height: 20px;
-          }
-
-          .boxText {
-            margin-top: 18px;
-            margin-bottom: 20px;
-            font-size: 12px;
-            font-weight: 400;
-            font-family: var(--primary-font);
-            color: #a3a3a3;
-            line-height: 16px;
-          }
-        }
-      }
-    }
-  }
-
-  .JSection3 {
-    width: 100%;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    overflow: hidden;
-
-    @media (min-width: 768px) {
-      padding-left: 60px;
-      padding-right: 60px;
       padding-bottom: 60px;
     }
 
-    @media (min-width: 1024px) {
-      padding-left: 80px;
-      padding-right: 80px;
-      padding-bottom: 80px;
-    }
-
     @media (min-width: 1280px) {
       padding-left: 100px;
       padding-right: 100px;
-      padding-bottom: 100px;
+      padding-bottom: 80px;
     }
 
     .HS4Box {
@@ -395,20 +272,6 @@
         line-height: clamp(28px, 4vw, 44px);
         margin-top: clamp(34px, 7vw, 101px);
         margin-bottom: clamp(28px, 6vw, 84px);
-      }
-
-      .HS4Text {
-        width: auto;
-        font-weight: 400;
-        font-family: var(--primary-font);
-
-        margin-top: clamp(42px, 8vw, 126px);
-        margin-bottom: clamp(31px, 7vw, 94px);
-
-        font-size: clamp(6px, 2vw, 16px);
-        line-height: clamp(10px, 3vw, 24px);
-
-        text-decoration: underline;
       }
     }
 
@@ -604,6 +467,24 @@
             }
           }
         }
+      }
+    }
+
+    .HS4ButtonRow {
+      width: 100%;
+      margin-top: 34px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .HS4NavButton {
+      width: 160px;
+      height: 40px;
+
+      .label {
+        line-height: 54px;
+        text-align: center;
       }
     }
   }
