@@ -1,0 +1,554 @@
+.ProfilePage {
+  position: relative;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  background-color: #eef7f5;
+
+  .PSection1 {
+    position: relative;
+    width: 100%;
+    padding: 100px 20px 55px 20px;
+    display: flex;
+    flex-direction: column;
+    column-gap: 35px;
+
+    @media (min-width: 768px) {
+      padding: 140px 60px 55px 60px;
+    }
+
+    @media (min-width: 1024px) {
+      padding: 180px 80px 55px 80px;
+      flex-direction: row;
+    }
+
+    @media (min-width: 1280px) {
+      padding: 186px 100px 55px 100px;
+    }
+
+    .PS1Box1 {
+      position: relative;
+      width: 100%;
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+
+      @media (min-width: 1024px) {
+        width: 294px;
+      }
+
+      .PS1ContentBox {
+        position: relative;
+        width: 100%;
+        padding: 23px 30px;
+        border-radius: 30px;
+        background-color: #ffffff;
+
+        @media (min-width: 1024px) {
+          width: 294px;
+        }
+
+        .PS1Header {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          gap: 20px;
+
+          .PS1Image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+          }
+
+          .PS1Text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+          }
+        }
+
+        .PS1Bio {
+          padding-top: 24px;
+          font-size: 14px;
+          line-height: 1.5;
+
+          @media (min-width: 1024px) {
+            font-size: 10px;
+          }
+        }
+
+        .PS1SkillBox {
+          margin-top: 23px;
+
+          .PS1Title1 {
+            padding-bottom: 12px;
+            font-size: 16px;
+
+            @media (min-width: 1024px) {
+              font-size: 12px;
+            }
+          }
+
+          .PS1SkillList {
+            position: relative;
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 6px;
+
+            @media (min-width: 568px) {
+              grid-template-columns: repeat(5, 1fr);
+            }
+
+            @media (min-width: 1024px) {
+              grid-template-columns: repeat(6, 1fr);
+            }
+
+            .PS1SkillItem {
+              padding: 6px 12px;
+              border-radius: 50px;
+              background: #83bfb3;
+              color: #ffffff;
+              display: flex;
+              text-align: center;
+              justify-content: center;
+              align-items: center;
+              font-size: 14px;
+              grid-column: span 2; // 3 items per row
+
+              @media (min-width: 568px) {
+                grid-column: span 1;
+              }
+              @media (min-width: 1024px) {
+                font-size: 9px;
+                height: 20px;
+                grid-column: span 2;
+              }
+            }
+
+            .PS1SkillItem:nth-child(4),
+            .PS1SkillItem:nth-child(5) {
+              grid-column: span 3; // 2 items per row
+
+              @media (min-width: 568px) {
+                grid-column: span 1;
+              }
+
+              @media (min-width: 1024px) {
+                grid-column: span 3;
+              }
+            }
+          }
+        }
+
+        .PS1Button1 {
+          position: relative;
+          margin-top: 19px;
+          width: 100%;
+          height: 40px;
+        }
+      }
+
+      .PS1ButtonBox {
+        position: relative;
+        display: none;
+
+        @media (min-width: 1024px) {
+          position: relative;
+          width: 294px;
+          margin-top: 30px;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .PS1Button2 {
+          position: relative;
+          margin-bottom: 16px;
+          width: 100%;
+          height: 40px;
+        }
+      }
+    }
+
+    .PS1Box2 {
+      position: relative;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+
+      .PS1ContentBox2 {
+        position: relative;
+        padding: 25px 27px 30px 27px;
+        border-radius: 25px;
+        background-color: #ffffff;
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+
+        .PS1HeaderBox {
+          position: relative;
+          width: 100%;
+          margin-bottom: 18px;
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+
+          .PS1Title2 {
+            position: relative;
+            font-size: 24px;
+            line-height: 24px;
+          }
+
+          .PS1Button3 {
+            position: relative;
+            font-size: 12px;
+            width: 110px;
+            height: 30px;
+          }
+        }
+
+        .PS1CardBox {
+          position: relative;
+          display: grid;
+          grid-template-columns: 1fr;
+          column-gap: 13px;
+          row-gap: 25px;
+          justify-items: center;
+          width: 100%;
+
+          @media (min-width: 450px) {
+            grid-template-columns: repeat(2, 1fr);
+          }
+
+          @media (min-width: 653px) {
+            grid-template-columns: repeat(3, 1fr);
+          }
+
+          @media (min-width: 874px) {
+            grid-template-columns: repeat(4, 1fr);
+          }
+
+          @media (min-width: 1024px) {
+            grid-template-columns: repeat(2, 1fr);
+          }
+
+          @media (min-width: 1050px) {
+            grid-template-columns: repeat(3, 1fr);
+          }
+
+          @media (min-width: 1250px) {
+            grid-template-columns: repeat(4, 1fr);
+          }
+
+          .PS1Card1 {
+            position: relative;
+            width: 165px;
+            height: 76px;
+            border-radius: 10px;
+            box-shadow: 0 0 6px #83bfb380;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+          }
+        }
+
+        .PS1CardBox4 {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          gap: 19px;
+
+          .PS1Row3 {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            width: 100%;
+            border-bottom: 1px solid #a3a3a3;
+
+            .PS1Button4 {
+              position: relative;
+              font-size: 12px;
+              max-width: 80px;
+              height: 20px;
+              border: 1px solid #83bfb3;
+              margin-right: 15px;
+            }
+
+            .PS1TextBox5 {
+              position: relative;
+              margin-top: 2.4px;
+              display: flex;
+              flex-direction: column;
+              gap: 5px;
+            }
+
+            & > :first-child {
+              position: relative;
+              width: 30%;
+            }
+
+            & > :last-child {
+              width: 70%; // value
+              padding-bottom: 15px;
+            }
+          }
+        }
+      }
+
+      .PS1ContentBox3 {
+        position: relative;
+        padding: 24px 27px 33px 27px;
+        border-radius: 25px;
+        background-color: #ffffff;
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+
+        .PS1HeaderBox2 {
+          position: relative;
+          width: 100%;
+          margin-bottom: 24px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 12px;
+
+          .PS1Title2 {
+            position: relative;
+            font-size: 24px;
+            line-height: 24px;
+          }
+
+          .PS1Button3 {
+            position: relative;
+            font-size: 12px;
+            width: 110px;
+            height: 30px;
+          }
+        }
+
+        .PS1CardBox2 {
+          position: relative;
+          display: grid;
+          width: 100%;
+          gap: 24px;
+
+          // Mobile: 1 per row
+          grid-template-columns: 1fr;
+
+          // Tablet: 2 per row
+          @media (min-width: 550px) {
+            grid-template-columns: repeat(2, 1fr);
+          }
+
+          @media (min-width: 874px) {
+            grid-template-columns: repeat(3, 1fr);
+          }
+
+          @media (min-width: 1024px) {
+            grid-template-columns: repeat(2, 1fr);
+          }
+
+          // Desktop: 3 per row (6 total → 2 rows)
+          @media (min-width: 1280px) {
+            grid-template-columns: repeat(3, 1fr);
+          }
+
+          .PS1TextBox {
+            position: relative;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+          }
+        }
+
+        .PS1CardBox3 {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          gap: 19px; // spacing between rows
+
+          .PS1Row {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            width: 100%;
+
+            & > :first-child {
+              width: 30%; // label
+            }
+
+            & > :last-child {
+              width: 70%; // value
+              border-bottom: 1px solid #a3a3a3;
+              padding-bottom: 14px;
+            }
+          }
+
+          .PS1Row2 {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            width: 100%;
+
+            & > :first-child {
+              width: 30%; // label
+            }
+
+            & > :last-child {
+              width: 70%; // value
+              border: 1px solid #a3a3a3;
+              padding: 15px;
+            }
+          }
+        }
+      }
+
+      .PS1ContentBox4 {
+        position: relative;
+        padding: 24px 27px 28px 27px;
+        border-radius: 25px;
+        background-color: #ffffff;
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+
+        .PS1HeaderBox3 {
+          position: relative;
+          width: 100%;
+          margin-bottom: 24px;
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+
+          .PS1Title2 {
+            position: relative;
+            font-size: 24px;
+            line-height: 24px;
+          }
+
+          .PS1Button3 {
+            position: relative;
+            font-size: 12px;
+            width: 110px;
+            height: 30px;
+          }
+        }
+
+        .PS1InnerBox {
+          position: relative;
+          width: 100%;
+          padding-top: 19px;
+          padding-bottom: 21px;
+          border-bottom: 1px solid #a3a3a3;
+          display: flex;
+          flex-direction: row;
+
+          &.noPaddingTop {
+            padding-top: 0px;
+          }
+
+          &.noBorder {
+            border-bottom: none;
+            padding-bottom: 0;
+          }
+
+          .PS1TextBox2 {
+            position: relative;
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+          }
+
+          .PS1TextBox3 {
+            position: relative;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+          }
+        }
+
+        .PS1InnerBox2 {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          gap: 9px;
+
+          .PS1ButtonBox3 {
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+          }
+        }
+      }
+
+      .PS1ContentBox5 {
+        position: relative;
+        padding: 24px 27px 27px 27px;
+        border-radius: 25px;
+        background-color: #ffffff;
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+
+        .PS1HeaderBox3 {
+          position: relative;
+          width: 100%;
+          margin-bottom: 24px;
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+
+          .PS1Title2 {
+            position: relative;
+            font-size: 24px;
+            line-height: 24px;
+          }
+
+          .PS1Button3 {
+            position: relative;
+            font-size: 12px;
+            width: 110px;
+            height: 30px;
+          }
+        }
+
+        .PS1TextBox4 {
+          position: relative;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          gap: 7px;
+        }
+      }
+
+      .PS1ButtonBox2 {
+        position: relative;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        @media (min-width: 1024px) {
+          position: relative;
+          display: none;
+        }
+
+        .PS1Button2 {
+          position: relative;
+          margin-bottom: 16px;
+          width: 100%;
+          height: 40px;
+        }
+      }
+    }
+  }
+}

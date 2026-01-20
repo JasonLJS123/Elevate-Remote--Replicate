@@ -10,6 +10,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import toast from 'react-simple-toasts';
 import Loader from 'react-js-loader';
 import CountUp from 'react-countup';
@@ -95,8 +96,9 @@ export default function Login() {
               <div className={styles.LSection1}>
                 {/* Left content */}
                 <div className={styles.LeftContent}>
-                  <img src={MainLogo} alt='MainLogo' />
-
+                  <Link to='/' className={styles.MainLogo}>
+                    <img src={MainLogo} alt='MainLogo' />
+                  </Link>
                   <Paragraph
                     color={'#496a63'}
                     textAlign={'left'}
@@ -111,11 +113,16 @@ export default function Login() {
                     className={styles.LSText}
                   >
                     <span>{translate('Don’t have an account?')} </span>
-                    <span
-                      style={{ fontWeight: 700, textDecoration: 'Underline' }}
+                    <Link
+                      to='/signup'
+                      style={{
+                        fontWeight: 700,
+                        textDecoration: 'underline',
+                        color: '#496a63',
+                      }}
                     >
                       {translate('Sign Up')}
-                    </span>
+                    </Link>
                   </Paragraph>
 
                   <FormInput

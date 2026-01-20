@@ -159,6 +159,7 @@ export default function Home() {
                           padding={'13px 12px'}
                           size='clamp(12px, 2.2vw, 14px)'
                           phfontweight='400'
+                          textColor='#83BFB3'
                           phtextColor={'#83BFB3'}
                           placeholder={translate(
                             'Enter keywords for best match'

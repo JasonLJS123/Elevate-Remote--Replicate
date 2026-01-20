@@ -11,6 +11,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import toast from 'react-simple-toasts';
 import Loader from 'react-js-loader';
 import CountUp from 'react-countup';
@@ -57,12 +58,12 @@ export default function SignUp() {
   const [country, setCountry] = useState('');
 
   const countries = [
-    { name: 'Afghanistan', img: SUSImage1 },
-    { name: 'Albania', img: SUSImage2 },
-    { name: 'Algeria', img: SUSImage3 },
-    { name: 'American Samoa', img: SUSImage4 },
-    { name: 'Angola', img: SUSImage5 },
-    { name: 'Anguilla', img: SUSImage6 },
+    { name: translate('Afghanistan'), img: SUSImage1 },
+    { name: translate('Albania'), img: SUSImage2 },
+    { name: translate('Algeria'), img: SUSImage3 },
+    { name: translate('American Samoa'), img: SUSImage4 },
+    { name: translate('Angola'), img: SUSImage5 },
+    { name: translate('Anguilla'), img: SUSImage6 },
   ];
 
   const { ref, inView } = useInView({
@@ -117,7 +118,9 @@ export default function SignUp() {
               <div className={styles.SUSection1}>
                 {/* Left content */}
                 <div className={styles.LeftContent}>
-                  <img src={MainLogo} alt='MainLogo' />
+                  <Link to='/' className={styles.MainLogo}>
+                    <img src={MainLogo} alt='MainLogo' />
+                  </Link>
 
                   <Paragraph
                     color={'#496a63'}
@@ -133,11 +136,16 @@ export default function SignUp() {
                     className={styles.SUSText}
                   >
                     <span>{translate('Already have an account?')} </span>
-                    <span
-                      style={{ fontWeight: 700, textDecoration: 'Underline' }}
+                    <Link
+                      to='/login'
+                      style={{
+                        fontWeight: 700,
+                        textDecoration: 'underline',
+                        color: '#496a63',
+                      }}
                     >
                       {translate('Sign In')}
-                    </span>
+                    </Link>
                   </Paragraph>
 
                   <FormInput

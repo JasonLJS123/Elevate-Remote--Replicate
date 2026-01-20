@@ -15,6 +15,7 @@ const JobResultPage = React.lazy(() => import('./pages/JobResult/JobResult'));
 const JobApplicationPage = React.lazy(() =>
   import('./pages/JobApplication/JobApplication')
 );
+const ProfilePage = React.lazy(() => import('./pages/Profile/Profile'));
 
 export default function AppRoutes() {
   return (
@@ -29,6 +30,7 @@ export default function AppRoutes() {
         <Route path='/jobfind' element={<FindJobPage />} />
         <Route path='/jobresult' element={<JobResultPage />} />
         <Route path='/jobapplication' element={<JobApplicationPage />} />
+        <Route path='/profile' element={<ProfilePage />} />
       </Routes>
     </React.Suspense>
   );

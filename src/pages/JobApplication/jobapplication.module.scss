@@ -8,18 +8,23 @@
   .JSection1 {
     position: relative;
     width: 100%;
-    padding: 100px 20px 0px 20px;
+    padding: 100px 20px 57px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
 
     @media (min-width: 768px) {
-      padding: 140px 60px 0px 60px;
+      padding: 140px 60px 57px 60px;
     }
 
     @media (min-width: 1024px) {
-      padding: 180px 80px 0px 80px;
+      padding: 180px 80px 57px 80px;
     }
 
     @media (min-width: 1280px) {
-      padding: 186px 100px 0px 100px;
+      flex-direction: row;
+      padding: 186px 100px 57px 100px;
     }
 
     .JS1Box1 {
@@ -28,43 +33,91 @@
       padding: 25px 35px;
       border-radius: 10px;
       background-color: #ffffff;
+      display: flex;
+      flex-direction: column;
+
+      @media (min-width: 1280px) {
+        display: block;
+        width: 70.6%;
+      }
 
       .JS1Top {
         position: relative;
+        padding-bottom: 28px;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
 
+        @media (min-width: 768px) {
+          flex-direction: row;
+        }
+
         .JS1Image1 {
           position: relative;
-          width: 260px;
-          height: 260px;
+          width: 100%;
           border-radius: 10px;
-          object-fit: cover;
+          display: flex;
+          align-items: flex-start;
+          justify-content: flex-start;
+
+          @media (min-width: 768px) {
+            width: 50%;
+          }
+
+          @media (min-width: 1280px) {
+            width: 70.6%;
+          }
+
+          img {
+            width: 315px;
+            height: 315px;
+            object-fit: cover;
+
+            @media (min-width: 768px) {
+              width: 260px;
+              height: 260px;
+            }
+          }
         }
 
         .JS1TextBox1 {
           position: relative;
+          padding-top: 20px;
           width: 100%;
           display: flex;
           flex-direction: column;
           align-items: flex-start;
           justify-content: flex-start;
 
+          @media (min-width: 768px) {
+            padding-top: 0px;
+            padding-left: 20px;
+          }
+
+          @media (min-width: 1280px) {
+            padding-left: 0px;
+          }
+
           .JS1TitleBox1 {
             position: relative;
-            padding-left: 20px;
             width: 100%;
             display: flex;
             flex-direction: row;
-            align-items: flex-start;
+            align-items: center;
             justify-content: flex-start;
+
+            .JS1Title1 {
+              font-size: 16px;
+
+              @media (min-width: 1280px) {
+                font-size: 24px;
+              }
+            }
 
             .JS1Image2 {
               position: relative;
-              padding-top: 3px;
-              padding-left: 15px;
+              padding-left: 10px;
               padding-right: 8px;
 
               img {
@@ -74,9 +127,19 @@
               }
             }
 
-            .JS1Image3 {
-              position: relative;
-              padding-left: 46px;
+            .JS1Text1 {
+              font-size: 10px;
+
+              @media (min-width: 1280px) {
+                font-size: 12px;
+              }
+            }
+
+            .JS1Image3Absolute {
+              position: absolute; // position absolute relative to JS1TitleBox1
+              display: block;
+              top: 0; // align to top
+              right: 0; // align to right
 
               img {
                 width: 20px;
@@ -85,6 +148,264 @@
               }
             }
           }
+
+          .JS1Text2 {
+            padding-top: 5px;
+            font-size: 10px;
+
+            @media (min-width: 1280px) {
+              font-size: 12px;
+            }
+          }
+
+          .JS1Line1 {
+            position: relative;
+            margin-top: 20px;
+            width: 100%;
+            height: 1px;
+            background-color: #d9d9d9;
+          }
+
+          .JS1ImageBox1 {
+            position: relative;
+            padding-top: 10px;
+            padding-bottom: 20px;
+            width: 100%;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            flex-direction: row;
+
+            @media (min-width: 768px) {
+              justify-content: flex-start;
+            }
+
+            .JS1Image5 {
+              position: relative;
+              width: 14px;
+              height: 12.6px;
+              object-fit: contain;
+            }
+
+            .JS1Text3 {
+              margin-left: 10px;
+              margin-right: 40px;
+            }
+
+            .JS1Image6 {
+              position: relative;
+              width: 9.8px;
+              height: 14px;
+              object-fit: contain;
+            }
+
+            .JS1Text4 {
+              margin-left: 10px;
+            }
+          }
+
+          .JS1RowWrapper {
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+
+            .JS1Column1 {
+              position: relative;
+              display: flex;
+              flex-direction: column;
+              gap: 8px;
+            }
+
+            .JS1Column2 {
+              position: relative;
+              display: flex;
+              flex-direction: column;
+              gap: 8px;
+            }
+          }
+        }
+      }
+
+      .JS1Bottom {
+        position: relative;
+        border-top: 1px solid #d9d9d9;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+
+        .JS1ContentBox {
+          position: relative;
+          padding-top: 25px;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+        }
+
+        .JS1ContentBox2 {
+          position: relative;
+          padding-top: 25px;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+
+          .bulletLine {
+            display: block; // each bullet becomes its own line
+            padding-left: 10px;
+            text-indent: -7px;
+          }
+
+          .bulletTitle {
+            font-weight: 700;
+          }
+        }
+
+        .JS1ContentBox3 {
+          position: relative;
+          padding-top: 25px;
+          display: flex;
+          flex-direction: column;
+
+          .JS1Title2 {
+            position: relative;
+            padding-bottom: 20px;
+          }
+
+          .JS1SearchWrapper {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            width: 100%;
+            z-index: 1;
+
+            .JS1InputWrapper {
+              position: relative;
+              width: 100%;
+              border-radius: 10px;
+              border: 1px solid #83bfb3;
+              overflow: hidden;
+              display: flex;
+            }
+
+            .JS1Input {
+              width: 100%;
+              line-height: 24px;
+              height: 50px;
+              padding-right: 136px;
+              box-sizing: border-box;
+              display: flex;
+              align-items: center;
+
+              font-size: 14px;
+              font-weight: 400;
+              color: #83bfb3;
+            }
+
+            .JS1InputButton {
+              position: absolute;
+              font-weight: 600;
+              right: 5px;
+              top: 50%;
+              transform: translateY(-50%);
+              height: 40px;
+              width: 100px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+          }
+
+          .JS1Text5 {
+            position: relative;
+            padding-top: 15px;
+
+            .NoteLine {
+              display: block; // each bullet becomes its own line
+              padding-left: 38px;
+              text-indent: -38px;
+            }
+          }
+
+          .JS1Button2 {
+            position: relative;
+            height: 40px;
+            width: 159px;
+            margin-top: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+        }
+      }
+    }
+
+    .JS1Box2 {
+      position: relative;
+      width: 100%;
+      padding-top: 20px;
+      display: flex;
+      flex-direction: column;
+
+      @media (min-width: 1280px) {
+        width: 29.4%;
+        padding-top: 0px;
+        padding-left: 34px;
+      }
+
+      .JS1Image4 {
+        position: relative;
+        display: none;
+
+        @media (min-width: 1280px) {
+          position: relative;
+          border-radius: 25px;
+          display: block;
+        }
+
+        img {
+          width: 285px;
+          height: 282px;
+          object-fit: cover;
+        }
+      }
+
+      .JS1Button3 {
+        position: relative;
+        display: none;
+
+        @media (min-width: 1280px) {
+          position: relative;
+          height: 40px;
+          width: 285px;
+          margin-top: 15px;
+          margin-bottom: 32px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+
+      .JS1Title3 {
+        position: relative;
+        padding-bottom: 14px;
+      }
+
+      .JS1TextBox2 {
+        position: relative;
+        width: 100%;
+        border-bottom: 1px solid #a3a3a3;
+
+        .JS1Title4 {
+          position: relative;
+          padding-top: 20px;
+          padding-bottom: 5px;
+        }
+
+        .JS1Text6 {
+          position: relative;
+          padding-bottom: 15px;
         }
       }
     }

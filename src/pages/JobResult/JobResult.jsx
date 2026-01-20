@@ -1347,7 +1347,7 @@ export default function Job_Finding() {
                 <div className={styles.HS4ButtonRow}>
                   {/* Left button */}
                   <Button
-                    label='Back'
+                    label={translate('Back')}
                     bg='#83BFB3'
                     hvbg='#6DAAA0'
                     color='#ffffff'
@@ -1360,7 +1360,7 @@ export default function Job_Finding() {
 
                   {/* Right button */}
                   <Button
-                    label='Next Page'
+                    label={translate('Next Page')}
                     bg='#83BFB3'
                     hvbg='#6DAAA0'
                     color='#ffffff'

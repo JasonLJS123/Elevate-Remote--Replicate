@@ -37,10 +37,14 @@
       align-items: flex-start;
       flex: 1; // take remaining width on desktop
 
-      img {
-        width: 128px;
-        height: 52.93px;
-        object-fit: contain;
+      .MainLogo {
+        text-decoration: none;
+
+        img {
+          width: 128px;
+          height: 52.93px;
+          object-fit: contain;
+        }
       }
 
       .SUSTitle {
